@@ -1,0 +1,33 @@
+<div class="card p-3">
+  <div class="border-bottom">
+    <div class="d-flex justify-content-between align-items-center">
+      <p class="form-title">Lista de Aluno</p>
+        <button type="button" routerLink="/aluno/incluir" class="btn btn-primary form-button">Incluir Aluno</button>
+    </div>
+  </div>
+
+  <table class="table text-primary">
+    <thead>
+      <tr>
+        <th scope="col">Nome Completo</th>
+        <th scope="col">CPF</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Curso</th>
+        <th scope="col">Ação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let aluno of alunos">
+        <td>{{aluno.nome}}</td>
+        <td>{{aluno.cpf}}</td>
+        <td>{{aluno.email}}</td>
+        <td>{{aluno.cursos[0]?.nome}}</td>
+        <td>
+          <i class="fa fa-edit mr-2"></i>
+          <i class="fa fa-trash"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
