@@ -7,7 +7,7 @@
 
   <form class="mt-4" #formAluno="ngForm" (ngSubmit)="enviar(formAluno)">
     <div class="d-flex mb-2 ">
-      <label for="input-nome-completo" class="mr-3 text-primary font-weight-bold col-md-4 text-right">Nome
+      <label for="input-nome-completo" class="mr-3 text-primary font-weight-bold col-md-4 text-right required">Nome
         Completo</label>
       <div class="col-md-4 px-0">
         <input type="text" class="form-control" placeholder="Digite o nome completo" id="input-nome-completo"
@@ -15,24 +15,24 @@
         <validation-message [for]="nome" [form]="formAluno"></validation-message>
       </div>
     </div>
-    <div class="d-flex mb-2  align-items-center">
-      <label for="input-cpf" class="mr-3 text-primary font-weight-bold col-md-4 text-right">CPF</label>
+    <div class="d-flex mb-2">
+      <label for="input-cpf" class="mr-3 text-primary font-weight-bold col-md-4 text-right required">CPF</label>
       <div class="col-md-4 px-0">
         <input type="text" class="form-control" placeholder="Digite o CPF" id="input-cpf" name="cpf"
           [(ngModel)]="aluno.cpf" required #cpf="ngModel">
         <validation-message [for]="cpf" [form]="formAluno"></validation-message>
       </div>
     </div>
-    <div class="d-flex mb-2  align-items-center">
-      <label for="input-email" class="mr-3 text-primary font-weight-bold col-md-4 text-right">E-mail</label>
+    <div class="d-flex mb-2">
+      <label for="input-email" class="mr-3 text-primary font-weight-bold col-md-4 text-right required">E-mail</label>
       <div class="col-md-4 px-0">
         <input type="text" class="form-control" placeholder="Digite o e-mail" id="input-email" name="email"
           [(ngModel)]="aluno.email" required #email="ngModel">
         <validation-message [for]="email" [form]="formAluno"></validation-message>
       </div>
     </div>
-    <div class="d-flex mb-3  align-items-center">
-      <label for="input-curso" class="mr-3 text-primary font-weight-bold col-md-4 text-right">Curso</label>
+    <div class="d-flex mb-3">
+      <label for="input-curso" class="mr-3 text-primary font-weight-bold col-md-4 text-right required">Curso</label>
       <div class="col-md-4 px-0">
         <select class="form-control" placeholder="Digite o curso" id="input-curso" name="curso"
           [(ngModel)]="aluno.idCurso" required #curso="ngModel">

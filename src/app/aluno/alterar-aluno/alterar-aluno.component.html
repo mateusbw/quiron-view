@@ -1,3 +1,52 @@
-<p>
-  alterar-aluno works!
-</p>
+<div class="card p-3">
+  <div class="border-bottom-2">
+    <div class="d-flex justify-content-between align-items-center">
+      <p class="form-title">Cadastro de Aluno</p><span>*campos obrigatórios</span>
+    </div>
+  </div>
+
+  <form class="mt-4" #formAluno="ngForm" (ngSubmit)="enviar(formAluno)">
+    <div class="d-flex mb-2 ">
+      <label for="input-nome-completo" class="mr-3 text-primary font-weight-bold col-md-4 text-right required">Nome
+        Completo</label>
+      <div class="col-md-4 px-0">
+        <input type="text" class="form-control" placeholder="Digite o nome completo" id="input-nome-completo"
+          name="nome" [(ngModel)]="aluno.nome" required #nome="ngModel">
+        <validation-message [for]="nome" [form]="formAluno"></validation-message>
+      </div>
+    </div>
+    <div class="d-flex mb-2">
+      <label for="input-cpf" class="mr-3 text-primary font-weight-bold col-md-4 text-right required">CPF</label>
+      <div class="col-md-4 px-0">
+        <input type="text" class="form-control" placeholder="Digite o CPF" id="input-cpf" name="cpf"
+          [(ngModel)]="aluno.cpf" required #cpf="ngModel">
+        <validation-message [for]="cpf" [form]="formAluno"></validation-message>
+      </div>
+    </div>
+    <div class="d-flex mb-2">
+      <label for="input-email" class="mr-3 text-primary font-weight-bold col-md-4 text-right required">E-mail</label>
+      <div class="col-md-4 px-0">
+        <input type="text" class="form-control" placeholder="Digite o e-mail" id="input-email" name="email"
+          [(ngModel)]="aluno.email" required #email="ngModel">
+        <validation-message [for]="email" [form]="formAluno"></validation-message>
+      </div>
+    </div>
+    <div class="d-flex mb-3">
+      <label for="input-curso" class="mr-3 text-primary font-weight-bold col-md-4 text-right required">Curso</label>
+      <div class="col-md-4 px-0">
+        <select class="form-control" placeholder="Digite o curso" id="input-curso" name="curso"
+          [(ngModel)]="aluno.idCurso" required #curso="ngModel">
+          <option value="undefined">Selecionar</option>
+          <option [value]="curso.id" *ngFor="let curso of opcoesCursos">{{curso.nome}}</option>
+        </select>
+        <validation-message [for]="curso" [form]="formAluno"></validation-message>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <button type="button" routerLink="/aluno" class="btn btn-primary mr-2">Cancelar</button>
+      <button type="reset" class="btn btn-primary mr-2">Limpar</button>
+      <button type="submit" class="btn btn-success mr-2">Enviar</button>
+    </div>
+  </form>
+
+</div>

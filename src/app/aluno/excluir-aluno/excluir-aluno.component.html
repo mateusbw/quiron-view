@@ -1,3 +1,30 @@
-<p>
-  excluir-aluno works!
-</p>
+<div class="card p-3">
+  <div class="border-bottom-2">
+    <div class="d-flex justify-content-between align-items-center">
+      <p class="form-title">Excluir Aluno</p>
+    </div>
+  </div>
+
+  <div class="d-flex mb-2 mt-4">
+    <label for="input-nome-completo" class="mr-3 text-primary font-weight-bold col-md-4 text-right">Nome
+      Completo</label>
+    <span>{{aluno.nome}}</span>
+  </div>
+  <div class="d-flex mb-2  align-items-center">
+    <label for="input-cpf" class="mr-3 text-primary font-weight-bold col-md-4 text-right">CPF</label>
+    <span>{{aluno.cpf | cpf}}</span>
+  </div>
+  <div class="d-flex mb-2  align-items-center">
+    <label for="input-email" class="mr-3 text-primary font-weight-bold col-md-4 text-right">E-mail</label>
+    <span>{{aluno.email}}</span>
+  </div>
+  <div class="d-flex mb-3  align-items-center">
+    <label for="input-curso" class="mr-3 text-primary font-weight-bold col-md-4 text-right">Curso</label>
+    <span>{{aluno.cursos[0]?.nome}}</span>
+  </div>
+  <div class="d-flex justify-content-center">
+    <button type="button" routerLink="/aluno" class="btn btn-primary mr-2">Cancelar</button>
+    <button type="button" class="btn btn-success mr-2" (click)="excluir()">Confirmar</button>
+  </div>
+
+</div>

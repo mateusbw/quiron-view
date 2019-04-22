@@ -7,3 +7,14 @@
     font-size: 1.2em;
     color: $primary
 }
+
+.border-bottom-2{
+    border-bottom: 2px solid #dee2e6 !important;
+}
+
+.required::after{
+    content: '*'
+}
+body{
+    background-color: #F9F9F9
+}

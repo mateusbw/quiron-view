@@ -4,6 +4,7 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { AlunoService } from './aluno.service';
 import { CursoService } from './curso.service';
 import { MessageModule } from '../core/message/message.module';
+import { AuthService } from './auth.service';
 
 /**
  * Modulo de integração com a API Rest.
@@ -26,7 +27,8 @@ export class ServiceModule {
       ngModule: ServiceModule,
       providers: [
         AlunoService,
-        CursoService
+        CursoService,
+        AuthService
       ]
     }
   }

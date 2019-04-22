@@ -23,11 +23,11 @@ export const AlunoRoutes: Routes = [
         component: IncluirAlunoComponent
     },
     {
-        path: 'alterar',
+        path: 'alterar/:id',
         component: AlterarAlunoComponent
     },
     {
-        path: 'excluir',
+        path: 'excluir/:id',
         component: ExcluirAlunoComponent
     },
     {

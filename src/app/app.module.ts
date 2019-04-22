@@ -1,25 +1,27 @@
+import { FormsModule } from '@angular/forms';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AppRouting } from './app.router';
+import { AppMessage } from './app.message';
+import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
-import { LoaderModule } from './core/loader/loader.module';
 import { AcessoModule } from './acesso/acesso.module';
-import { ValidationModule } from './core/validation/validation.module';
-import { MessageModule } from './core/message/message.module';
-import { LoginComponent } from './login/login.component';
-import { RecuperarSenhaComponent } from './recuperar-senha/recuperar-senha.component';
 import { ServiceModule } from './service/service.module';
+import { LoginComponent } from './login/login.component';
+import { LoaderModule } from './core/loader/loader.module';
+import { MessageModule } from './core/message/message.module';
+import { ValidationModule } from './core/validation/validation.module';
 import { MessageResourceProvider } from './core/message/message.resource';
+import { RecuperarSenhaComponent } from './recuperar-senha/recuperar-senha.component';
 import { ValidationResourceProvider } from './core/validation/validation.resource';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    RecuperarSenhaComponent
+    AppComponent
   ],
   imports: [
     AppRouting,
@@ -30,13 +32,22 @@ import { ValidationResourceProvider } from './core/validation/validation.resourc
     MessageModule.forRoot(),
     BrowserModule,
     ServiceModule.forRoot(),
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    BrowserAnimationsModule,
   ],
-  providers: [  
-  {
-    provide: ValidationResourceProvider,
-  },
-],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'pt',
+    },
+    {
+      provide: MessageResourceProvider,
+      useValue: AppMessage,
+    },
+    {
+      provide: ValidationResourceProvider,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -11,6 +11,7 @@ import { IncluirAlunoComponent } from './incluir-aluno/incluir-aluno.component';
 import { ExcluirAlunoComponent } from './excluir-aluno/excluir-aluno.component';
 import { AlterarAlunoComponent } from './alterar-aluno/alterar-aluno.component';
 import { ListarAlunoComponent } from './listar-aluno/listar-aluno.component';
+import { PipesModule } from '../core/pipes/pipes.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ListarAlunoComponent } from './listar-aluno/listar-aluno.component';
     FormsModule,
     MessageModule,
     ValidationModule,
-    RouterModule.forChild(AlunoRoutes)
+    RouterModule.forChild(AlunoRoutes),
+    PipesModule
   ]
 })
 export class AlunoModule { }

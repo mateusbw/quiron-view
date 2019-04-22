@@ -18,9 +18,9 @@ export class AlunoService {
    */
   constructor(private http: HttpClient) { }
 
-   /**
-   * Retorna a lista de Alunos.
-   */
+  /**
+  * Retorna a lista de Alunos.
+  */
   public listarAlunos(): Observable<any> {
     return this.http.get(`${environment.urlAluno}listar`);
   }
@@ -29,13 +29,20 @@ export class AlunoService {
    * Inseri um aluno.
    */
   public incluirAluno(aluno: any): Observable<any> {
-    return this.http.post(`${environment.urlAluno}`,aluno);
+    return this.http.post(`${environment.urlAluno}`, aluno);
   }
 
-    /**
-   * Inseri um aluno.
-   */
+  /**
+ * Busca aluno conforme o Id informado.
+ */
   public buscarAluno(idAluno: any): Observable<any> {
     return this.http.get(`${environment.urlAluno}${idAluno}`);
+  }
+
+  /**
+* Busca aluno conforme o Id informado.
+*/
+  public excluirAluno(idAluno: any): Observable<any> {
+    return this.http.delete(`${environment.urlAluno}${idAluno}`);
   }
 }

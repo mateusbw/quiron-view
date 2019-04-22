@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { CursoService } from 'src/app/service/curso.service';
+import { AlunoService } from 'src/app/service/aluno.service';
+import { Router } from '@angular/router';
+import { MessageService } from 'src/app/core/message/message.service';
 
 @Component({
   selector: 'app-incluir-aluno',
@@ -11,22 +14,32 @@ export class IncluirAlunoComponent implements OnInit {
 
   public aluno;
   public opcoesCursos;
-  constructor(private cursoService: CursoService) { }
+  constructor(private cursoService: CursoService,
+              private alunoService: AlunoService, 
+              private router: Router,
+              private messageService: MessageService) { }
 
   ngOnInit() {
     this.aluno = {};
 
-    this.cursoService.listarCursos().subscribe(data=>{
-      console.log(data);
+    this.cursoService.listarCursos().subscribe(data => {
       this.opcoesCursos = data;
-    },error =>{
-      console.error(error);
+    }, error => {
+      console.error(error)
     })
   }
-
-  public enviar(formulario: NgForm){
+  
+  public enviar(formulario: NgForm) {
     if(formulario.valid){
-      console.log(this.aluno);
+      this.aluno.idAlunoCadastrou = 1;
+      this.alunoService.incluirAluno(this.aluno).subscribe(data=>{
+        this.router.navigate(['/aluno']);
+        this.messageService.addMsgSuccess('MSG_REGISTRO_INCLUIDO_SUCESSO');
+      }, error=>{
+        this.messageService.addMsgDanger("MSG_ERRO_INCLUIR");
+        console.error(error);
+      }
+      )
     }
   }
 }
