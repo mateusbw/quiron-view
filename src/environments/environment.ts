@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   urlAluno: 'http://localhost:8080/aluno/',
   urlCurso: 'http://localhost:8080/cursos/',
-  urlLogin: 'http://localhost:8080/login/'
+  urlLogin: 'http://localhost:8080/login/',
+  urlDiario: 'http://localhost:8080/diario/',
 };
 

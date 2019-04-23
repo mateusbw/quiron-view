@@ -45,4 +45,9 @@ export class AlunoService {
   public excluirAluno(idAluno: any): Observable<any> {
     return this.http.delete(`${environment.urlAluno}${idAluno}`);
   }
+
+  public listarAlunoPorMonitor(idMonitor: any): Observable<any> {
+    return this.http.get(`${environment.urlAluno}monitor/${idMonitor}`);
+  }
+  
 }

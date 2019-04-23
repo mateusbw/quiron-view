@@ -1,0 +1,22 @@
+<div class="card p-3">
+  <div class="border-bottom-2">
+    <div class="d-flex justify-content-between align-items-center">
+      <p class="form-title">Registro de Diário</p><span>*campos obrigatórios</span>
+    </div>
+  </div>
+
+  <form class="mt-4" #formDiario="ngForm" (ngSubmit)="enviar(formDiario)">
+    <div class="d-flex mb-2 ">
+      <label for="input-nome-completo" class="mr-3 text-primary font-weight-bold col-md-4 text-right required">Data monitoria: </label>
+      <div class="col-md-4 px-0">
+        <input type="text" class="form-control" placeholder="Insira a data de realização da monitoria" id="input-data-diario"
+          name="data" [(ngModel)]="diario.data" required #data="ngModel" bsDatePicker>
+       
+      </div>
+    </div>
+    
+
+    
+  </form>
+
+</div>

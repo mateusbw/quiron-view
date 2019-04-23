@@ -15,6 +15,9 @@ export const HomeRoutes: Routes = [
     children: [
       {
         path: 'aluno', loadChildren: '../app/aluno/aluno.module#AlunoModule'
+      },
+      {
+        path: 'diario', loadChildren: '../app/diario/diario.module#DiarioModule'
       }
     ]
 
