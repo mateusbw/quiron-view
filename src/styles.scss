@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'variables';
 @import '../node_modules/bootstrap/scss/bootstrap';
-@import '../node_modules/ngx-bootstrap/';
 
 
 .form-title{
@@ -13,7 +12,7 @@
     border-bottom: 2px solid #dee2e6 !important;
 }
 
-.required::after{
+.required::before{
     content: '*'
 }
 body{
