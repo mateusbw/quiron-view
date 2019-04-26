@@ -1,0 +1,50 @@
+<div class="card p-3">
+  <div class="border-bottom-2">
+    <div class="d-flex justify-content-between align-items-center">
+      <p class="form-title">Registro de Diário</p><span>*campos obrigatórios</span>
+    </div>
+  </div>
+
+  <label class="mr-3 mt-4 text-primary font-weight-bold col-md-4 text-right">Monitoria: </label> {{dadosMonitoria.nome_monitoria}} / {{dadosMonitoria.semestre_monitoria}}
+  <label class="mr-3 text-primary font-weight-bold col-md-4 text-right">Monitor: </label> {{monitor.nome}}
+
+  <form class="" #formDiario="ngForm" (ngSubmit)="enviar(formDiario)">
+    <div class="d-flex mb-2 ">
+      <label for="input-data-diario" class="mr-3 text-primary font-weight-bold col-md-4 text-right required">Data Monitoria: </label>
+      <div class="col-md-4 px-0">
+        <input type="text" class="form-control" placeholder="DD/MM/YYYY" id="input-data-diario"
+          name="data" [(ngModel)]="diario.data" required #data="ngModel" bsDatePicker>
+      </div>
+    </div>
+
+    <div class="d-flex mb-2">
+      <label for="input-data-conteudo" class="mr-3 text-primary font-weight-bold col-md-4 text-right required">Conteúdo: </label>
+      <div class="col-md-4 px-0">
+        <textarea class="form-control" placeholder="Ex: Atividades de reforço" id="input-data-conteudo"
+          name=conteudo [(ngModel)]="diario.conteudo" required #data="ngModel"></textarea>
+      </div>
+    </div>
+
+    <table class="table text-primary">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Alunos Presentes:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let aluno of alunos">
+          <td><input type="checkbox" value="aluno.selected" [(ngModel)]="aluno.selected" checked><br></td>
+          <td>{{aluno.nome}}</td>
+        </tr>
+      </tbody>
+    </table>
+    
+   <div class="d-flex justify-content-center">
+    <button type="reset" class="btn btn-primary mr-2">Limpar</button>
+    <button type="submit" class="btn btn-success mr-2">Enviar</button>
+   </div>
+    
+  </form>
+
+</div>

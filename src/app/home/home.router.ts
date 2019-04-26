@@ -16,11 +16,12 @@ export const HomeRoutes: Routes = [
       {
         path: 'aluno', loadChildren: '../app/aluno/aluno.module#AlunoModule'
       },
-
-
-
       {
         path: 'monitoria', loadChildren: '../app/monitoria/monitoria.module#MonitoriaModule'
+      },
+      {
+        path: 'diario', loadChildren: '../app/diario/diario.module#DiarioModule'
+
       }
     ]
 

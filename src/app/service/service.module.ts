@@ -5,6 +5,7 @@ import { AlunoService } from './aluno.service';
 import { CursoService } from './curso.service';
 import { MessageModule } from '../core/message/message.module';
 import { AuthService } from './auth.service';
+import { DiarioService } from './diario.service';
 
 /**
  * Modulo de integração com a API Rest.
@@ -28,6 +29,7 @@ export class ServiceModule {
       providers: [
         AlunoService,
         CursoService,
+        DiarioService,
         AuthService
       ]
     }
