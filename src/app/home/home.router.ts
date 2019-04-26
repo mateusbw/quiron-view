@@ -15,6 +15,12 @@ export const HomeRoutes: Routes = [
     children: [
       {
         path: 'aluno', loadChildren: '../app/aluno/aluno.module#AlunoModule'
+      },
+
+
+
+      {
+        path: 'monitoria', loadChildren: '../app/monitoria/monitoria.module#MonitoriaModule'
       }
     ]
 

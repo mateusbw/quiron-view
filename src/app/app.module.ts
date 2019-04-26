@@ -1,3 +1,4 @@
+import { MonitoriaModule } from './monitoria/monitoria.module';
 import { FormsModule } from '@angular/forms';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';

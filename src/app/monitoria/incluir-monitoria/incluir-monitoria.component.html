@@ -1,0 +1,58 @@
+<div class="card p-3">
+  <div class="border-bottom-2">
+    <div class="d-flex justify-content-between align-items-center">
+      <p class="form-title">Cadastro de Monitoria</p><span>*campos obrigatórios</span>
+    </div>
+  </div>
+
+  <form class="mt-4" #formMonitoria="ngForm" (ngSubmit)="enviar(formMonitoria)">
+   
+    <!-- nome -->
+    <div class="d-flex mb-2 ">
+      <label for="input-nome-monitoria" class="mr-3 text-primary font-weight-bold col-md-4 text-right required">Nome
+        Monitoria</label>
+      <div class="col-md-4 px-0">
+        <input type="text" class="form-control" placeholder="Digite o nome da Monitoria" id="input-nome-monitoria"
+          name="nome" [(ngModel)]="monitoria.nome_monitoria" required #nome="ngModel">
+        <validation-message [for]="nome" [form]="formMonitoria"></validation-message>
+      </div>
+    </div>
+
+    <!-- disciplina -->
+    <div class="d-flex mb-3">
+      <label for="input-disciplina" class="mr-3 text-primary font-weight-bold col-md-4 text-right required">Disciplina</label>
+      <div class="col-md-4 px-0">
+        <select class="form-control" placeholder="Selecione a Disciplina" id="input-disciplina" name="disciplina"
+          [(ngModel)]="monitoria.disciplina.id" required #disciplina="ngModel">
+          <option value="undefined">Selecionar</option>
+          <option [value]="disciplina.id" *ngFor="let disciplina of opcoesDisciplinas">{{disciplina.nome_disciplina}}</option>
+        </select>
+        <validation-message [for]="disciplina" [form]="formMonitoria"></validation-message>
+      </div>
+    </div>
+
+    <div class="d-flex mb-2">
+      <label for="input-cpf" class="mr-3 text-primary font-weight-bold col-md-4 text-right required">CPF</label>
+      <div class="col-md-4 px-0">
+        <input type="text" class="form-control" placeholder="Digite o CPF" id="input-cpf" name="cpf"
+          [(ngModel)]="aluno.cpf" required #cpf="ngModel">
+        <validation-message [for]="cpf" [form]="formMonitoria"></validation-message>
+      </div>
+    </div>
+    <div class="d-flex mb-2">
+      <label for="input-email" class="mr-3 text-primary font-weight-bold col-md-4 text-right required">E-mail</label>
+      <div class="col-md-4 px-0">
+        <input type="text" class="form-control" placeholder="Digite o e-mail" id="input-email" name="email"
+          [(ngModel)]="aluno.email" required #email="ngModel">
+        <validation-message [for]="email" [form]="formMonitoria"></validation-message>
+      </div>
+    </div>
+    
+    <div class="d-flex justify-content-center">
+      <button type="button" routerLink="/aluno" class="btn btn-primary mr-2">Cancelar</button>
+      <button type="reset" class="btn btn-primary mr-2">Limpar</button>
+      <button type="submit" class="btn btn-success mr-2">Enviar</button>
+    </div>
+  </form>
+
+</div>

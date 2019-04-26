@@ -4,8 +4,10 @@
 
 export const environment = {
   production: false,
-  urlAluno: 'http://localhost:8080/aluno/',
-  urlCurso: 'http://localhost:8080/cursos/',
-  urlLogin: 'http://localhost:8080/login/'
+  urlAluno:      'http://localhost:8080/aluno/',
+  urlCurso:      'http://localhost:8080/cursos/',
+  urlLogin:      'http://localhost:8080/login/',
+  urlMonitoria:  'http://localhost:8080/monitoria/',
+  urlDisciplina: 'http://localhost:8080/disciplina/'
 };
 
