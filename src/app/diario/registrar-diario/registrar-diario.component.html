@@ -33,7 +33,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let aluno of alunos">
+        <tr *ngFor="let aluno of listaAlunos">
           <td><input type="checkbox" value="aluno.selected" [(ngModel)]="aluno.selected" checked><br></td>
           <td>{{aluno.nome}}</td>
         </tr>
