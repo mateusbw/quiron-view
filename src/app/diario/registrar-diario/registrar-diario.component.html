@@ -4,24 +4,35 @@
       <p class="form-title">Registro de Diário</p><span>*campos obrigatórios</span>
     </div>
   </div>
+  <div class="d-flex mb-2">
+    <label class="mr-3 mt-4 text-primary font-weight-bold col-md-4 text-right">Monitoria: </label> 
+    <div class="col-md-4 px-0 mt-4 text-primary">
+      {{dadosMonitoria.nome_monitoria}} - {{dadosMonitoria.semestre_monitoria}}
+    </div> 
+  </div>
 
-  <label class="mr-3 mt-4 text-primary font-weight-bold col-md-4 text-right">Monitoria: </label> {{dadosMonitoria.nome_monitoria}} / {{dadosMonitoria.semestre_monitoria}}
-  <label class="mr-3 text-primary font-weight-bold col-md-4 text-right">Monitor: </label> {{monitor.nome}}
+  <div class="d-flex mb-2">
+    <label class="mr-3 text-primary font-weight-bold col-md-4 text-right">Monitor: </label> 
+    <div class="col-md-4 px-0 text-primary">
+      {{monitor.nome}}
+    </div>
+  </div>
+ 
 
   <form class="" #formDiario="ngForm" (ngSubmit)="enviar(formDiario)">
     <div class="d-flex mb-2 ">
       <label for="input-data-diario" class="mr-3 text-primary font-weight-bold col-md-4 text-right required">Data Monitoria: </label>
       <div class="col-md-4 px-0">
-        <input type="text" class="form-control" placeholder="DD/MM/YYYY" id="input-data-diario"
-          name="data" [(ngModel)]="diario.data" required #data="ngModel" bsDatePicker>
+        <input type="date" class="form-control" placeholder="DD/MM/YYYY" id="input-data-diario"
+          name="data" [(ngModel)]="diario.data_diario" required #data="ngModel" bsDatePicker>
       </div>
     </div>
 
     <div class="d-flex mb-2">
-      <label for="input-data-conteudo" class="mr-3 text-primary font-weight-bold col-md-4 text-right required">Conteúdo: </label>
+      <label for="input-conteudo-diario" class="mr-3 text-primary font-weight-bold col-md-4 text-right required">Conteúdo: </label>
       <div class="col-md-4 px-0">
-        <textarea class="form-control" placeholder="Ex: Atividades de reforço" id="input-data-conteudo"
-          name=conteudo [(ngModel)]="diario.conteudo" required #data="ngModel"></textarea>
+        <textarea class="form-control" placeholder="Ex: Atividades de reforço" id="input-conteudo-diario"
+          name=conteudo [(ngModel)]="diario.conteudo_ministrado" required #data="ngModel"></textarea>
       </div>
     </div>
 
@@ -34,7 +45,8 @@
       </thead>
       <tbody>
         <tr *ngFor="let aluno of listaAlunos">
-          <td><input type="checkbox" value="aluno.selected" [(ngModel)]="aluno.selected" checked><br></td>
+          <td><input type="checkbox" 
+            [(ngModel)]="aluno.presente" [ngModelOptions]="{standalone: true}"><br></td>
           <td>{{aluno.nome}}</td>
         </tr>
       </tbody>

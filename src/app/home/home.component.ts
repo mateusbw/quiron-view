@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 
+import {AuthService} from 'src/app/service/auth.service'
 import { SecurityService } from '../core/security/security.service';
 import { MessageService } from '../core/message/message.service'
 
@@ -17,5 +18,11 @@ import { MessageService } from '../core/message/message.service'
   ]
 })
 export class HomeComponent {
+    public usuario;
 
+    constructor(private authService: AuthService){}
+
+    ngOnInit(){
+      this.usuario = this.authService.getSession();
+    }
 }
