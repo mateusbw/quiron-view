@@ -20,4 +20,6 @@ import { ValidationModule } from '../core/validation/validation.module';
 
   ]
 })
-export class DiarioModule { }
+export class DiarioModule { 
+  
+}

@@ -44,7 +44,7 @@ export class MonitoriaService {
   /**
  * Busca Monitoria conforme o Id do Monitor.
  */
-public buscarMonitoriPorMonitor(idMonitor: any): Observable<any> {
+public buscarMonitoriaPorMonitor(idMonitor: any): Observable<any> {
   return this.http.get(`${environment.urlMonitoria}monitor/${idMonitor}`);
 }
 
@@ -53,5 +53,10 @@ public buscarMonitoriPorMonitor(idMonitor: any): Observable<any> {
 */
   public excluirMonitoria(idMonitoria: any): Observable<any> {
     return this.http.delete(`${environment.urlMonitoria}${idMonitoria}`);
+  }
+
+  /* Busca a lista de alunos que já estiveram presentes em uma monitoria */
+  public buscarAlunosByMonitoria(idMonitoria: any): Observable<any>{
+    return this.http.get(`${environment.urlMonitoria}alunoByMonitoria/${idMonitoria}`);
   }
 }
