@@ -90,11 +90,11 @@ export class AlterarMonitoriaComponent implements OnInit {
   public enviar(formulario: NgForm) {
     if(formulario.valid){
       //this.formataHoraCorreto();
-      this.monitoriaService.incluirMonitoria(this.monitoria).subscribe(data=>{
+      this.monitoriaService.atualizaMonitoria(this.monitoria).subscribe(data=>{
         this.router.navigate(['/monitoria']);
-        this.messageService.addMsgSuccess('MSG_REGISTRO_INCLUIDO_SUCESSO');
+        this.messageService.addMsgSuccess('MSG_SUCESSO_ALTERAR_MONITORIA');
       }, error=>{
-        this.messageService.addMsgDanger(error.message);
+        this.messageService.addMsgDanger(error.error.message);
         console.error(error);
       }
       )

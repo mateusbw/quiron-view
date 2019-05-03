@@ -31,6 +31,9 @@ export class AppMessage implements MessageResource, ValidationResource {
       'MSG_DESEJA_SAIR_SISTEMA': 'Deseja realmente sair do sistema?',
       'MSG_REGISTRO_CONFIRMA_EXCLUSAO': 'Tem certeza que deseja excluir o registro?',
       'MSG_CPF_SENHA_INCORRETO': 'CPF e Senha inválidos',
+      'MSG_SUCESSO_INCLUIR_MONITORIA': 'Monitoria Cadastrada com Sucesso',
+      'MSG_SUCESSO_EXCLUIR_MONITORIA': 'Monitoria Excluída com Sucesso',
+      'MSG_SUCESSO_ALTERAR_MONITORIA': 'Monitoria Alterada com Sucesso',
 
       'required': 'Campo de preenchimento obrigatório.',
       'maxlength': 'Total de caracteres excede o tamanho máximo.',

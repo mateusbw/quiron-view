@@ -80,7 +80,7 @@ export class IncluirMonitoriaComponent implements OnInit {
       //this.formataHoraCorreto();
       this.monitoriaService.incluirMonitoria(this.monitoria).subscribe(data=>{
         this.router.navigate(['/monitoria']);
-        this.messageService.addMsgSuccess('MSG_REGISTRO_INCLUIDO_SUCESSO');
+        this.messageService.addMsgSuccess('MSG_SUCESSO_INCLUIR_MONITORIA');
       }, error=>{
         this.messageService.addMsgDanger(error.message);
         console.error(error);
