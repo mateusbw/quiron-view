@@ -5,11 +5,11 @@
         <img class="img-fluid mb-3" src="/assets/img/logo-horizontal-branca.png">
         <h6 class="text-center">Você está logado como:</h6>
         <div class="text-center">
-            <p class="mb-0 font-weight-bold">Amanda Moraes</p>
-            <p>Monitor</p>
+            <p class="mb-0 font-weight-bold">{{usuario.nome}}</p>
+            <p>{{usuario.papel.role}}</p>
         </div>
         <p class="font-weight-bold menu">MENU</p>
-        <button class=" btn btn-clear btn-block text-left text-light" routerLink="/aluno">
+        <button class=" btn btn-clear btn-block text-left text-light" routerLink="/aluno" >
             <i class="fa fa-users mr-3"></i>
             <span class="font-weight-bold">Alunos</span>
         </button>
@@ -21,7 +21,6 @@
             <i class="fa fa-book mr-3"></i>
             <span class="font-weight-bold">Diário</span>
         </button>
-
     </div>
     <div class="col-2"></div>
 
