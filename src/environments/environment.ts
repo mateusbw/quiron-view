@@ -10,5 +10,6 @@ export const environment = {
   urlMonitoria:  'http://localhost:8080/monitoria/',
   urlDisciplina: 'http://localhost:8080/disciplina/',
   urlDiario:     'http://localhost:8080/diario/',
+  urlStatus:     'http://localhost:8080/status/',
 };
 

@@ -8,9 +8,11 @@ import { ValidationModule } from '../core/validation/validation.module';
 import { PipesModule } from '../core/pipes/pipes.module';
 import { RouterModule } from '@angular/router';
 import { MonitoriaRoutes } from './monitoria.router';
+import { AlterarMonitoriaComponent } from './alterar-monitoria/alterar-monitoria.component';
+import { ExcluirMonitoriaComponent } from './excluir-monitoria/excluir-monitoria.component';
 
 @NgModule({
-  declarations: [IncluirMonitoriaComponent, ListarMonitoriaComponent],
+  declarations: [IncluirMonitoriaComponent, ListarMonitoriaComponent, AlterarMonitoriaComponent, ExcluirMonitoriaComponent],
   imports: [
     CommonModule,
     FormsModule,

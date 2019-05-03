@@ -1,0 +1,160 @@
+<div class="card p-3">
+  <div class="border-bottom-2">
+    <div class="d-flex justify-content-between align-items-center">
+      <p class="form-title">Excluir Monitoria</p>
+    </div>
+  </div>
+
+  <form class="mt-4" #formMonitoria="ngForm" (ngSubmit)="enviar(formMonitoria)">
+   
+    <!-- nome --> 
+    <div class="d-flex mb-2 ">
+      <label for="input-nome-monitoria" class="mr-3 text-primary font-weight-bold col-md-4 text-right ">Nome
+        Monitoria</label>
+      <span class="text-primary">{{monitoria.nome_monitoria}}</span>
+      
+    </div>
+
+    <!-- disciplina -->
+    <div class="d-flex mb-3">
+      <label for="input-disciplina" class="mr-3 text-primary font-weight-bold col-md-4 text-right ">Disciplina</label>
+      <span class="text-primary" >{{monitoria.disciplina.nome_disciplina}}</span>
+    </div>
+
+    <!-- semestre -->
+    <div class="d-flex mb-3">
+      <label for="input-semestre" class="mr-3 text-primary font-weight-bold col-md-4 text-right ">Ano / Semestere</label>
+      <span class="text-primary">{{monitoria.semestre_monitoria}}</span>      
+    </div>
+
+    <!-- monitor(aluno) -->
+    <div class="d-flex mb-3">
+      <label for="input-monitor" class="mr-3 text-primary font-weight-bold col-md-4 text-right ">Monitor</label>
+      <span class="text-primary">{{monitoria.monitor.nome}}</span>
+    </div>
+
+    <!-- status -->
+    <div class="d-flex mb-3">
+        <label for="input-status" class="mr-3 text-primary font-weight-bold col-md-4 text-right ">Status</label>
+        <span class="text-primary">{{monitoria.status.nome_status}}</span>
+      </div>
+
+    <!-- Horario -->
+    <div class="mb-3">
+      <label for="input-horario" class="mr-3 text-primary font-weight-bold col-md-4  ">Horário</label>
+      <table class="table text-primary">
+        <thead>
+          <tr>
+            <th scope="col">Dias</th>
+            <th scope="col">Sala</th>
+            <th scope="col">Hora iníco</th>
+            <th scope="col">Hora fim</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- segunda-->
+          <tr>
+            <td>
+              <input [disabled]="true"  [ngModelOptions]="{standalone: true}" type="checkbox" class="flat" name="table_records" [(ngModel)]="monitoria.horario.segunda"> Segunda-feira
+            </td>
+            <td>
+              <span>{{monitoria.horario.sala_segunda}}</span>
+            </td>
+            <td>
+              <span>{{monitoria.horario.inicio_segunda}}</span>                           
+            </td>
+            <td>
+              <span>{{monitoria.horario.final_segunda}}</span>              
+            </td>  
+          </tr>
+
+          <!-- terca-->
+          <tr>
+            <td>
+              <input  [disabled]="true"  [ngModelOptions]="{standalone: true}" type="checkbox"  class="flat" name="table_records" [(ngModel)]="monitoria.horario.terca"> Terça-feira
+            </td>
+            <td>
+              <span>{{monitoria.horario.sala_terca}}</span>              
+            </td>
+            <td>
+              <span>{{monitoria.horario.inicio_terca}}</span>            
+            </td>
+            <td>
+              <span>{{monitoria.horario.final_terca}}</span>
+            </td>  
+          </tr>
+
+          <!-- quarta-->
+          <tr>
+            <td>
+              <input [disabled]="true"  [ngModelOptions]="{standalone: true}"  type="checkbox"  class="flat" name="table_records" [(ngModel)]="monitoria.horario.quarta"> Quarta-feira
+            </td>
+            <td>
+             <span>{{monitoria.horario.sala_quarta}}</span>                        
+            </td>
+            <td>
+              <span>{{monitoria.horario.inicio_quarta}}</span>              
+            </td>
+            <td>
+              <span>{{monitoria.horario.final_quarta}}</span>            
+            </td>  
+          </tr>
+
+          <!-- quinta-->
+          <tr>
+            <td>
+              <input [disabled]="true"  [ngModelOptions]="{standalone: true}" type="checkbox" class="flat" name="table_records" [(ngModel)]="monitoria.horario.quinta"> Quinta-feira
+            </td>
+            <td>
+              <span>{{monitoria.horario.sala_quinta}}</span>
+            </td>
+            <td>
+              <span>{{monitoria.horario.inicio_quinta}}</span>            
+            </td>
+            <td>
+              <span>{{monitoria.horario.final_quinta}}</span>
+            </td>  
+          </tr>
+
+          <!-- sexta-->
+          <tr>
+            <td>
+              <input [disabled]="true"  [ngModelOptions]="{standalone: true}" type="checkbox"  class="flat" name="table_records" [(ngModel)]="monitoria.horario.sexta"> Sexta-feira
+            </td>
+            <td>
+              <span>{{monitoria.horario.sala_sexta}}</span>              
+            </td>
+            <td>
+              <span>{{monitoria.horario.inicio_sexta}}</span>           
+            </td>
+            <td>
+              <span>{{monitoria.horario.final_sexta}}</span>
+            </td>  
+          </tr>
+          
+          <!-- sabado-->
+          <tr>
+            <td>
+              <input [disabled]="true"  [ngModelOptions]="{standalone: true}" type="checkbox" class="flat" name="table_records" [(ngModel)]="monitoria.horario.sabado"> Sábado-feira
+            </td>
+            <td>
+              <span>{{monitoria.horario.sala_sabado}}</span>               
+            </td>
+            <td>
+              <span>{{monitoria.horario.inicio_sabado}}</span>             
+            </td>
+            <td>
+              <span>{{monitoria.horario.final_sabado}}</span> 
+            </td>  
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <button type="button" routerLink="/monitoria" class="btn btn-primary mr-2">Cancelar</button>
+      <button type="submit" class="btn btn-success mr-2">Confirmar</button>
+    </div>
+  </form>
+
+</div>

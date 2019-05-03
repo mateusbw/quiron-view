@@ -1,9 +1,11 @@
+import { AlterarMonitoriaComponent } from './alterar-monitoria/alterar-monitoria.component';
 import { IncluirMonitoriaComponent } from './incluir-monitoria/incluir-monitoria.component';
 
 import { Routes } from '@angular/router';
 
 import { SecurityGuard } from '../core/security/security.guard';
 import { ListarMonitoriaComponent } from './listar-monitoria/listar-monitoria.component';
+import { ExcluirMonitoriaComponent } from './excluir-monitoria/excluir-monitoria.component';
 
 
 /**
@@ -22,11 +24,11 @@ export const MonitoriaRoutes: Routes = [
     },
     {
         path: 'alterar/:id',
-        //component: AlterarAlunoComponent
+        component: AlterarMonitoriaComponent
     },
     {
         path: 'excluir/:id',
-        //component: ExcluirAlunoComponent
+        component: ExcluirMonitoriaComponent
     },
     {
         path: '',
