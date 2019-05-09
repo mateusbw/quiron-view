@@ -34,6 +34,8 @@ export class AppMessage implements MessageResource, ValidationResource {
       'MSG_SUCESSO_INCLUIR_MONITORIA': 'Monitoria Cadastrada com Sucesso',
       'MSG_SUCESSO_EXCLUIR_MONITORIA': 'Monitoria Excluída com Sucesso',
       'MSG_SUCESSO_ALTERAR_MONITORIA': 'Monitoria Alterada com Sucesso',
+      'MSG_SUCESSO_REGISTRAR_DIARIO': 'Diário Registrado com Sucesso',
+      
 
       'required': 'Campo de preenchimento obrigatório.',
       'maxlength': 'Total de caracteres excede o tamanho máximo.',

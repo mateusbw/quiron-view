@@ -36,14 +36,20 @@
       </div>
     </div>
 
+   
     <table class="table text-primary">
       <thead>
         <tr>
-          <th scope="col"></th>
-          <th scope="col">Alunos Presentes:</th>
+          <th scope="col">Presença</th>
+          <th scope="col">Alunos</th>
+          <th> <input type="text" placeholder="Pesquisar novos alunos" [(ngModel)]="pesquisaAlunos"> </th>
         </tr>
       </thead>
       <tbody>
+       
+          
+        
+
         <tr *ngFor="let aluno of listaAlunos">
           <td><input type="checkbox" 
             [(ngModel)]="aluno.presente" [ngModelOptions]="{standalone: true}"><br></td>
