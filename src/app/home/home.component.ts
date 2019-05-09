@@ -23,6 +23,12 @@ export class HomeComponent {
     constructor(private authService: AuthService){}
 
     ngOnInit(){
+      this.usuario ={
+        nome : null,
+        papel:{
+
+        }
+      }
       this.usuario = this.authService.getSession();
     }
 }
