@@ -60,6 +60,7 @@ export class RegistrarDiarioComponent implements OnInit {
   public enviar(formulario: NgForm) {
       this.alunosPresentes = [];
       this.diario.id_monitoria = this.dadosMonitoria.id;
+      //this.formataHora();
       for(let aluno of this.listaAlunos){
         if(aluno.presente == true){
           this.alunosPresentes.push(aluno.id);
@@ -73,5 +74,11 @@ export class RegistrarDiarioComponent implements OnInit {
         console.log(error);
       })
   }
+
+  // public formataHora(){
+  //   this.diario.data_diario = new Date(this.diario.data_diario).toUTCString;
+    
+  //   console.log(this.diario.data_diario);
+  // }
 
 }
