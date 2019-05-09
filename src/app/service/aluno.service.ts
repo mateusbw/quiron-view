@@ -39,6 +39,13 @@ export class AlunoService {
     return this.http.get(`${environment.urlAluno}${idAluno}`);
   }
 
+    /**
+ * Busca aluno conforme o Id informado.
+ */
+public listarAlunoPorNome(nome: string): Observable<any> {
+  return this.http.get(`${environment.urlAluno}listar?nome=${nome}`);
+}
+
   /**
 * Busca aluno conforme o Id informado.
 */

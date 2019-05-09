@@ -5,64 +5,73 @@
     </div>
   </div>
   <div class="d-flex mb-2">
-    <label class="mr-3 mt-4 text-primary font-weight-bold col-md-4 text-right">Monitoria: </label> 
+    <label class="mr-3 mt-4 text-primary font-weight-bold col-md-4 text-right">Monitoria: </label>
     <div class="col-md-4 px-0 mt-4 text-primary">
       {{dadosMonitoria.nome_monitoria}} - {{dadosMonitoria.semestre_monitoria}}
-    </div> 
+    </div>
   </div>
 
   <div class="d-flex mb-2">
-    <label class="mr-3 text-primary font-weight-bold col-md-4 text-right">Monitor: </label> 
+    <label class="mr-3 text-primary font-weight-bold col-md-4 text-right">Monitor: </label>
     <div class="col-md-4 px-0 text-primary">
       {{monitor.nome}}
     </div>
   </div>
- 
+
 
   <form class="" #formDiario="ngForm" (ngSubmit)="enviar(formDiario)">
     <div class="d-flex mb-2 ">
-      <label for="input-data-diario" class="mr-3 text-primary font-weight-bold col-md-4 text-right required">Data Monitoria: </label>
+      <label for="input-data-diario" class="mr-3 text-primary font-weight-bold col-md-4 text-right required">Data
+        Monitoria: </label>
       <div class="col-md-4 px-0">
-        <input type="date" class="form-control" placeholder="DD/MM/YYYY" id="input-data-diario"
-          name="data" [(ngModel)]="diario.data_diario" required #data="ngModel" bsDatePicker>
+        <input type="date" class="form-control" placeholder="DD/MM/YYYY" id="input-data-diario" name="data"
+          [(ngModel)]="diario.data_diario" required #data="ngModel" bsDatePicker>
       </div>
     </div>
 
     <div class="d-flex mb-2">
-      <label for="input-conteudo-diario" class="mr-3 text-primary font-weight-bold col-md-4 text-right required">Conteúdo: </label>
+      <label for="input-conteudo-diario"
+        class="mr-3 text-primary font-weight-bold col-md-4 text-right required">Conteúdo: </label>
       <div class="col-md-4 px-0">
-        <textarea class="form-control" placeholder="Ex: Atividades de reforço" id="input-conteudo-diario"
-          name=conteudo [(ngModel)]="diario.conteudo_ministrado" required #data="ngModel"></textarea>
+        <textarea class="form-control" placeholder="Ex: Atividades de reforço" id="input-conteudo-diario" name=conteudo
+          [(ngModel)]="diario.conteudo_ministrado" required #data="ngModel"></textarea>
       </div>
     </div>
 
-   
-    <table class="table text-primary">
-      <thead>
-        <tr>
-          <th scope="col">Presença</th>
-          <th scope="col">Alunos</th>
-          <th> <input type="text" placeholder="Pesquisar novos alunos" [(ngModel)]="pesquisaAlunos"> </th>
-        </tr>
-      </thead>
-      <tbody>
-       
-          
-        
+    <div class="d-flex justify-content-center">
+      <table class="table text-primary">
+        <thead>
+          <tr>
+            <th style="width:8%" scope="col">Presença</th>
+            <th style="width:50%" scope="col">Alunos</th>
+            <th style="width:42%"><div class="row">
+                <input name="nomePesquisa" type="text" class="form-control col-8" placeholder="Pesquisar novos alunos"
+                [(ngModel)]="pesquisaAlunos" ><button type="button" class="btn btn-primary ml-2" (click)="pesquisarAluno()">Pesquisar</button>
+              <ul class="list-group search-list" *ngIf="alunosPesquisa">
+                <li class="list-group-item" *ngFor="let aluno of alunosPesquisa"><button type="button" class="btn btn-clear" (click)="inserirAluno(aluno)" >{{aluno.nome}}</button></li>
+              </ul>
+            </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
 
-        <tr *ngFor="let aluno of listaAlunos">
-          <td><input type="checkbox" 
-            [(ngModel)]="aluno.presente" [ngModelOptions]="{standalone: true}"><br></td>
-          <td>{{aluno.nome}}</td>
-        </tr>
-      </tbody>
-    </table>
-    
-   <div class="d-flex justify-content-center">
-    <button type="reset" class="btn btn-primary mr-2">Limpar</button>
-    <button type="submit" class="btn btn-success mr-2">Enviar</button>
-   </div>
-    
+
+
+
+          <tr *ngFor="let aluno of listaAlunos">
+            <td><input type="checkbox" [(ngModel)]="aluno.presente" [ngModelOptions]="{standalone: true}"><br></td>
+            <td>{{aluno?.nome}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <button type="reset" class="btn btn-primary mr-2">Limpar</button>
+      <button type="submit" class="btn btn-success mr-2">Enviar</button>
+    </div>
+
   </form>
 
 </div>

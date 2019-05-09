@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MonitoriaService } from 'src/app/service/monitoria.service';
+import { AlunoService } from 'src/app/service/aluno.service';
 import { Router } from '@angular/router';
 import { MessageService } from 'src/app/core/message/message.service';
 import { NgForm } from '@angular/forms';
 import {AuthService} from 'src/app/service/auth.service'
 import { DiarioService } from 'src/app/service/diario.service'
+import { Subject } from 'rxjs';
 
 
 
@@ -19,14 +21,20 @@ export class RegistrarDiarioComponent implements OnInit {
   public dadosMonitoria;
   public monitor;
   public diario;
+  public pesquisaAlunos:string;
+  public alunosPesquisa;
+
+  private subjectPesquisa: Subject<string> = new Subject<string>();
 
   constructor(private diarioService: DiarioService,
               private authService: AuthService,
               private monitoriaService: MonitoriaService,
+              private alunoService: AlunoService,
               private router: Router,
               private messageService: MessageService) { }
 
   ngOnInit() {
+    this.pesquisaAlunos;
      this.listaAlunos = {}
      this.dadosMonitoria = {}
      this.diario = {
@@ -55,6 +63,9 @@ export class RegistrarDiarioComponent implements OnInit {
 
      //Com os dados de monitoria, busca os alunos que estiveram presentes alguma vez naquela monitoriaa.
      
+
+
+
   }
 
   public enviar(formulario: NgForm) {
@@ -73,6 +84,17 @@ export class RegistrarDiarioComponent implements OnInit {
       }, error => {
         console.log(error);
       })
+  }
+
+  public pesquisarAluno(){
+    delete this.alunosPesquisa;
+    this.alunoService.listarAlunoPorNome(this.pesquisaAlunos).subscribe(data =>{
+      this.alunosPesquisa = data;
+    });
+  }
+
+  public inserirAluno(aluno){
+    this.listaAlunos.push(aluno);
   }
 
   // public formataHora(){
