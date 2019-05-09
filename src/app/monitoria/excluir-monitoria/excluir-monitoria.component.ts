@@ -42,10 +42,10 @@ export class ExcluirMonitoriaComponent implements OnInit {
   
     this.monitoriaService.excluirMonitoria(this.monitoriaId).subscribe(data=>{
       this.router.navigate(['/monitoria']);
-      this.messageService.addMsgSuccess('MSG_REGISTRO_INCLUIDO_SUCESSO');
+      this.messageService.addMsgSuccess('MSG_SUCESSO_EXCLUIR_MONITORIA');
     }, error=>{
       console.error(error);
-      this.messageService.addMsgDanger(error.message);
+      this.messageService.addMsgDanger(error.error.message);
       
     }
     )

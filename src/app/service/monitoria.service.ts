@@ -35,6 +35,13 @@ export class MonitoriaService {
   }
 
   /**
+   * Atualiza um Monitoria.
+   */
+  public atualizaMonitoria(Monitoria: any): Observable<any> {
+    return this.http.put(`${environment.urlMonitoria}`, Monitoria);
+  }
+
+  /**
  * Busca Monitoria conforme o Id informado.
  */
   public buscarMonitoria(idMonitoria: any): Observable<any> {
