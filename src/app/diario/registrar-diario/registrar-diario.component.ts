@@ -35,7 +35,7 @@ export class RegistrarDiarioComponent implements OnInit {
 
   ngOnInit() {
     this.pesquisaAlunos;
-     this.listaAlunos = {}
+     this.listaAlunos = []
      this.dadosMonitoria = {}
      this.diario = {
        id_monitoria: null, 
@@ -95,6 +95,7 @@ export class RegistrarDiarioComponent implements OnInit {
 
   public inserirAluno(aluno){
     this.listaAlunos.push(aluno);
+    delete this.alunosPesquisa;
   }
 
   // public formataHora(){
