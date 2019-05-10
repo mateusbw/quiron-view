@@ -4,6 +4,7 @@ import { CursoService } from 'src/app/service/curso.service';
 import { AlunoService } from 'src/app/service/aluno.service';
 import { Router } from '@angular/router';
 import { MessageService } from 'src/app/core/message/message.service';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-incluir-aluno',
@@ -17,11 +18,11 @@ export class IncluirAlunoComponent implements OnInit {
   constructor(private cursoService: CursoService,
               private alunoService: AlunoService, 
               private router: Router,
-              private messageService: MessageService) { }
+              private messageService: MessageService,
+              private authService: AuthService) { }
 
   ngOnInit() {
     this.aluno = {};
-
     this.cursoService.listarCursos().subscribe(data => {
       this.opcoesCursos = data;
     }, error => {
@@ -31,7 +32,7 @@ export class IncluirAlunoComponent implements OnInit {
   
   public enviar(formulario: NgForm) {
     if(formulario.valid){
-      this.aluno.idAlunoCadastrou = 1;
+      this.aluno.idAlunoCadastrou = this.authService.getUser().id;
       this.alunoService.incluirAluno(this.aluno).subscribe(data=>{
         this.router.navigate(['/aluno']);
         this.messageService.addMsgSuccess('MSG_REGISTRO_INCLUIDO_SUCESSO');

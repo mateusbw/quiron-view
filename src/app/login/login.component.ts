@@ -21,15 +21,8 @@ export class LoginComponent implements OnInit {
   }
 
   public enviar(form: NgForm){
-
     if(form.valid){
-      this.authService.login(this.user).subscribe(data=>{
-        console.log(data);
-        this.authService.setSession(data);
-        this.router.navigate(['/'])
-      },error=>{
-        this.messageService.addMsgDanger("MSG_CPF_SENHA_INCORRETO")
-      })
+      this.authService.login(this.user);
     }
   }
 

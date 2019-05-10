@@ -45,7 +45,7 @@ export class RegistrarDiarioComponent implements OnInit {
      }
 
      //Busca os dados do monitor logado
-     this.monitor = this.authService.getSession();
+     this.monitor = this.authService.getUser();
      console.log(this.monitor)
 
      //Busca os dados de monitoria a partir do id do monitor

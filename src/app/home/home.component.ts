@@ -29,6 +29,14 @@ export class HomeComponent {
 
         }
       }
-      this.usuario = this.authService.getSession();
+
+      this.usuario = this.authService.getUser();
+      console.log(this.usuario);
+
     }
+
+    public sair(){
+      this.authService.sair();
+    }
+
 }

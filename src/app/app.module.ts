@@ -14,6 +14,7 @@ import { MessageModule } from './core/message/message.module';
 import { ValidationModule } from './core/validation/validation.module';
 import { MessageResourceProvider } from './core/message/message.resource';
 import { ValidationResourceProvider } from './core/validation/validation.resource';
+import { AuthGuard } from './service/auth.guard';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { ValidationResourceProvider } from './core/validation/validation.resourc
     BrowserAnimationsModule,
   ],
   providers: [
+    AuthGuard,
     {
       provide: LOCALE_ID,
       useValue: 'pt',
