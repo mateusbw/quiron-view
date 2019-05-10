@@ -195,7 +195,7 @@
           <!-- sabado-->
           <tr>
             <td>
-              <input   type="checkbox"  [ngModelOptions]="{standalone: true}" (change)="limparHorarioDesativado()" class="flat" name="table_records" [(ngModel)]="monitoria.horario.sabado"> Sábado-feira
+              <input   type="checkbox"  [ngModelOptions]="{standalone: true}" (change)="limparHorarioDesativado()" class="flat" name="table_records" [(ngModel)]="monitoria.horario.sabado"> Sábado
             </td>
             <td>
               <input  [(ngModel)]= "monitoria.horario.sala_sabado"  [readonly]="!monitoria.horario.sabado" type="text" 
