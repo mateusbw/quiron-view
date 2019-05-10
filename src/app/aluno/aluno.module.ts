@@ -12,7 +12,7 @@ import { ExcluirAlunoComponent } from './excluir-aluno/excluir-aluno.component';
 import { AlterarAlunoComponent } from './alterar-aluno/alterar-aluno.component';
 import { ListarAlunoComponent } from './listar-aluno/listar-aluno.component';
 import { PipesModule } from '../core/pipes/pipes.module';
-
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 @NgModule({
   declarations: [IncluirAlunoComponent, ExcluirAlunoComponent, AlterarAlunoComponent, ListarAlunoComponent],
@@ -22,7 +22,8 @@ import { PipesModule } from '../core/pipes/pipes.module';
     MessageModule,
     ValidationModule,
     RouterModule.forChild(AlunoRoutes),
-    PipesModule
+    PipesModule,
+    
   ]
 })
 export class AlunoModule { }

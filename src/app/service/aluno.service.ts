@@ -19,11 +19,25 @@ export class AlunoService {
   constructor(private http: HttpClient) { }
 
   /**
+  * Retorna a lista de Alunos de acordo com o filtro informado.
+  */
+  public listarAlunosPorFiltro(filtro: any): Observable<any> {
+    let params: String = "todos=" + filtro.todos;
+    if (filtro.nome) {
+      params = params.concat("&nome=" + filtro.nome)
+    }
+    if (filtro.idCurso) {
+      params = params.concat("&idCurso=" + filtro.idCurso)
+    }
+    return this.http.get(`${environment.urlAluno}listar?${params}`);
+  }
+
+   /**
   * Retorna a lista de Alunos.
   */
-  public listarAlunos(): Observable<any> {
-    return this.http.get(`${environment.urlAluno}listar`);
-  }
+ public listarAlunos(): Observable<any> {
+  return this.http.get(`${environment.urlAluno}listar?todos=true`);
+}
 
   /**
    * Inseri um aluno.

@@ -22,6 +22,7 @@ export class AppMessage implements MessageResource, ValidationResource {
       'MSG_CPF_INVALIDO': 'O CPF informado é inválido.',
 
       'MSG_REGISTRO_NAO_ENCONTRADO': 'Nenhum registro encontrado.',
+      'MSG_ERRO_CONSULTA': 'Ocorrou um erro ao consultar os registros. Favor contactar o administrador.',
       'MSG_REGISTRO_INCLUIDO_SUCESSO': 'Registro incluído com sucesso.',
       'MSG_ERRO_INCLUIR': 'Erro ao incluir registro. Favor contactar o administrador.',
       'MSG_REGISTRO_ALTERADO_SUCESSO': 'Registro alterado com sucesso.',

@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 
 import { HomeComponent } from './home.component';
 import { ValidationModule } from '../core/validation/validation.module';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker/';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ValidationModule } from '../core/validation/validation.module';
     CollapseModule.forRoot(),
     ValidationModule,
     FormsModule,
+    BsDatepickerModule.forRoot()
   ]
 })
 export class HomeModule { }

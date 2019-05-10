@@ -11,7 +11,7 @@ import { MessageService } from 'src/app/core/message/message.service';
   styleUrls: ['./incluir-aluno.component.scss']
 })
 export class IncluirAlunoComponent implements OnInit {
-
+  bsInlineValue = new Date();
   public aluno;
   public opcoesCursos;
   constructor(private cursoService: CursoService,
