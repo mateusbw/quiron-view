@@ -94,7 +94,17 @@ export class RegistrarDiarioComponent implements OnInit {
   }
 
   public inserirAluno(aluno){
-    this.listaAlunos.push(aluno);
+    var aux = 0;
+    for(let a of this.listaAlunos){
+      if (a.id == aluno.id){
+        aux = 1;
+      }
+    }
+    if(aux != 1){
+      this.listaAlunos.push(aluno);
+    }
+    this.pesquisaAlunos = "";
+    this.alunosPesquisa = false;
   }
 
   // public formataHora(){
