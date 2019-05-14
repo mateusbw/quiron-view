@@ -82,7 +82,7 @@ export class IncluirMonitoriaComponent implements OnInit {
         this.router.navigate(['/monitoria']);
         this.messageService.addMsgSuccess('MSG_SUCESSO_INCLUIR_MONITORIA');
       }, error=>{
-        this.messageService.addMsgDanger(error.message);
+        this.messageService.addMsgDanger(error.error.message);
         console.error(error);
       }
       )

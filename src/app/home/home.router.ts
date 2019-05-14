@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { SecurityGuard } from '../core/security/security.guard'
-import { AuthGuard } from '../service/auth.guard';
+import { AuthGuard } from './../service/auth.guard';
 
 /**
  * Configuração de 'Rotas' do módulo 'Home'.
