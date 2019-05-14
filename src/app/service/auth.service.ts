@@ -27,7 +27,11 @@ export class AuthService {
 
         },error =>{
             console.log("Erro: ",error)
-            this.messageService.addMsgDanger("Usuario invalido");
+            if(error.status == 500){
+                this.messageService.addMsgDanger(error.error.message);
+            }else{
+                this.messageService.addMsgDanger("MSG_FALHA_CONEXAO");
+            }
         });
        
     }

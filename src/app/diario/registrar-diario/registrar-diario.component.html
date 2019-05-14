@@ -49,7 +49,9 @@
                 [(ngModel)]="pesquisaAlunos" ><button type="button" class="btn btn-primary ml-2" (click)="pesquisarAluno()">Pesquisar</button>
               <ul class="list-group search-list" *ngIf="alunosPesquisa">
                 <li class="list-group-item" *ngFor="let aluno of alunosPesquisa"><button type="button" class="btn btn-clear" (click)="inserirAluno(aluno)" >{{aluno.nome}}</button></li>
+                
               </ul>
+              <button type="button" routerLink="/aluno/incluir" style="margin-left: 5px;" class="btn btn-success">+</button>
             </div>
             </th>
           </tr>

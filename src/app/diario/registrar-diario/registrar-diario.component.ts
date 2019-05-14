@@ -35,7 +35,7 @@ export class RegistrarDiarioComponent implements OnInit {
 
   ngOnInit() {
     this.pesquisaAlunos;
-     this.listaAlunos = {}
+     this.listaAlunos = []
      this.dadosMonitoria = {}
      this.diario = {
        id_monitoria: null, 
@@ -94,7 +94,22 @@ export class RegistrarDiarioComponent implements OnInit {
   }
 
   public inserirAluno(aluno){
+<<<<<<< HEAD
+    var aux = 0;
+    for(let a of this.listaAlunos){
+      if (a.id == aluno.id){
+        aux = 1;
+      }
+    }
+    if(aux != 1){
+      this.listaAlunos.push(aluno);
+    }
+    this.pesquisaAlunos = "";
+    this.alunosPesquisa = false;
+=======
     this.listaAlunos.push(aluno);
+    delete this.alunosPesquisa;
+>>>>>>> 1fde86a8e7f27d3478ab391f8e0360cd7930f176
   }
 
   // public formataHora(){
