@@ -20,6 +20,7 @@ export class AppMessage implements MessageResource, ValidationResource {
       'LABEL_CONFIRM_NO': 'Não',
 
       'MSG_CPF_INVALIDO': 'O CPF informado é inválido.',
+      'MSG_FALHA_CONEXAO': 'Falha de conexão com o servidor. Favor contactar o administrador.',
 
       'MSG_REGISTRO_NAO_ENCONTRADO': 'Nenhum registro encontrado.',
       'MSG_ERRO_CONSULTA': 'Ocorrou um erro ao consultar os registros. Favor contactar o administrador.',
