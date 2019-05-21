@@ -28,6 +28,13 @@ export class MonitoriaService {
   }
 
   /**
+  * Retorna a lista de Monitorias ativas
+  */
+  public listarMonitoriasAtivas(): Observable<any> {
+    return this.http.get(`${environment.urlMonitoria}ativas`);
+  }
+
+  /**
    * Inseri um Monitoria.
    */
   public incluirMonitoria(Monitoria: any): Observable<any> {
