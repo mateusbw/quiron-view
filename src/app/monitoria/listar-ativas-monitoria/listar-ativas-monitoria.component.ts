@@ -1,5 +1,7 @@
+
 import { Component, OnInit } from '@angular/core';
 import { MonitoriaService } from "./../../service/monitoria.service";
+
 
 @Component({
   selector: 'app-listar-ativas-monitoria',
@@ -8,6 +10,7 @@ import { MonitoriaService } from "./../../service/monitoria.service";
 })
 export class ListarAtivasMonitoriaComponent implements OnInit {
   public monitorias;
+  public isCollapsed = true;
   constructor(private monitoriaService: MonitoriaService) { }
   
 

@@ -11,11 +11,13 @@ import { MonitoriaRoutes } from './monitoria.router';
 import { AlterarMonitoriaComponent } from './alterar-monitoria/alterar-monitoria.component';
 import { ExcluirMonitoriaComponent } from './excluir-monitoria/excluir-monitoria.component';
 import { ListarAtivasMonitoriaComponent } from './listar-ativas-monitoria/listar-ativas-monitoria.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
   declarations: [IncluirMonitoriaComponent, ListarMonitoriaComponent, AlterarMonitoriaComponent, ExcluirMonitoriaComponent, ListarAtivasMonitoriaComponent],
   imports: [
+    NgbModule,
     CommonModule,
     FormsModule,
     MessageModule,
