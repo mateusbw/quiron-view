@@ -8,6 +8,7 @@ import { SecurityGuard } from '../core/security/security.guard';
 import { ListarMonitoriaComponent } from './listar-monitoria/listar-monitoria.component';
 import { ExcluirMonitoriaComponent } from './excluir-monitoria/excluir-monitoria.component';
 import { ListarAtivasMonitoriaComponent } from './listar-ativas-monitoria/listar-ativas-monitoria.component';
+import { ListarHistoricoMonitoriaComponent } from './listar-historico-monitoria/listar-historico-monitoria.component';
 
 
 /**
@@ -23,6 +24,10 @@ export const MonitoriaRoutes: Routes = [
     {
         path: 'listar-ativas',
         component: ListarAtivasMonitoriaComponent
+    },
+    {
+        path: 'listar-historico',
+        component: ListarHistoricoMonitoriaComponent
     },
     {
         path: 'incluir',
