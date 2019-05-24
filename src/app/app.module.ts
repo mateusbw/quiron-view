@@ -18,12 +18,13 @@ import { ValidationResourceProvider } from './core/validation/validation.resourc
 import { AuthGuard } from './service/auth.guard';
 
 
+
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    AppRouting,
+    AppRouting, 
     HomeModule,
     LoaderModule,
     AcessoModule,
