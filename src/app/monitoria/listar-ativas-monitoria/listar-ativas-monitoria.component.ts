@@ -10,7 +10,8 @@ import { MonitoriaService } from "./../../service/monitoria.service";
 })
 export class ListarAtivasMonitoriaComponent implements OnInit {
   public monitorias;
-  public isCollapsed = true;
+  //public isCollapsed = true;
+  public isCollapsed = [];
   constructor(private monitoriaService: MonitoriaService) { }
   
 
@@ -21,5 +22,19 @@ export class ListarAtivasMonitoriaComponent implements OnInit {
     },error =>{
       console.error(error);
     })
+  }
+
+  setRow(id){
+   
+      this.isCollapsed[id]=false;
+    
+  }
+
+  click(id){
+    this.isCollapsed[id] = !this.isCollapsed[id];
+  }
+
+  getValue(id){
+    return this.isCollapsed[id];
   }
 }
