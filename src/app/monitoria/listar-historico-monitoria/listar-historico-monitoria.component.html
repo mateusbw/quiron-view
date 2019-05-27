@@ -1,50 +1,32 @@
 <div class="card p-3">
   <div class="border-bottom">
     <div class="d-flex justify-content-between align-items-center">
-      <p class="form-title">Histórico de Monitorias Realizadas</p>
-      
+      <p class="form-title">Lista de Monitorias Realizadas</p>
     </div>
   </div>
-  <div id="accordion">
+  <ul>
+    <li>
+      <a  (click)="click(i)"
+        [attr.aria-expanded]="!isCollapsed[i]" aria-controls="collapseExample">
+          <label class="form-title" style="margin-top: 10px;"> Semeste Exemplo 
+            <i class="fa fa-chevron-down" style="margin-left: 10px;" aria-hidden="true"></i>
+          </label> 
+      </a>
+      <hr>
+      <div id="collapseExample" [ngbCollapse]="isCollapsed[i]">
+        <div class="card">
+          <div class="card-body">
+            You can collapse this card by clicking Toggle
+          </div>
+        </div>
+      </div>
+    </li>
+    
+</ul>
 
-    <div class="card">
-      <div class="card-header">
-        <a class="card-link" data-toggle="collapse" href="#collapseOne">
-          Collapsible Group Item #1
-        </a>
-      </div>
-      <div id="collapseOne" class="collapse show" data-parent="#accordion">
-        <div class="card-body">
-          Lorem ipsum..
-        </div>
-      </div>
-    </div>
-  
-    <div class="card">
-      <div class="card-header">
-        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
-          Collapsible Group Item #2
-        </a>
-      </div>
-      <div id="collapseTwo" class="collapse" data-parent="#accordion">
-        <div class="card-body">
-          Lorem ipsum..
-        </div>
-      </div>
-    </div>
-  
-    <div class="card">
-      <div class="card-header">
-        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-          Collapsible Group Item #3
-        </a>
-      </div>
-      <div id="collapseThree" class="collapse" data-parent="#accordion">
-        <div class="card-body">
-          Lorem ipsum..
-        </div>
-      </div>
-    </div>
-  
-  </div>
 </div>
+
+
+
+
+
