@@ -19,29 +19,135 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let m of monitorias; let i = index;  ">
+      <tr *ngFor="let monitoria of monitorias; let i = index;  ">
         
-        <td>{{m.id}}</td>
-        <td>{{m.nome_monitoria}}</td>
-        <td>{{m.disciplina.nome_disciplina}}</td>
-        <td>{{m.monitor.nome}}</td>
-        <td>{{m.semestre_monitoria}}</td>
-        <td>{{m.status.nome_status}}</td>
-        <td> 
+          
+        <td>{{monitoria.id}}</td>
+        <td>{{monitoria.nome_monitoria}}</td>
+        <td>{{monitoria.disciplina.nome_disciplina}}</td>
+        <td>{{monitoria.monitor.nome}}</td>
+        <td>{{monitoria.semestre_monitoria}}</td>
+        <td>{{monitoria.status.nome_status}}</td>
+        <td colspan="7"> 
             <a  (click)="click(i)"
             [attr.aria-expanded]="!isCollapsed[i]" aria-controls="collapseExample">
               <i class="fa fa-chevron-down" aria-hidden="true"></i>
-           </a>
-            <div id="collapseExample" [ngbCollapse]="isCollapsed[i]">
-                <div class="card">
-                  <div class="card-body">
-                    You can collapse this card by clicking Toggle
-                  </div>
-                </div>
-            </div>
-         
-        
-        </td>
+           </a>  
+           <div [ngbCollapse]="!isCollapsed[i]">
+             <!-- Horario -->
+            <div class="mb-3" id="collapseExample" [ngbCollapse]="!isCollapsed[i]">
+                <label for="input-horario" class="mr-3 text-primary font-weight-bold col-md-4  ">Horário</label>
+                <table class="table text-primary">
+                  <thead>
+                    <tr>
+                      <th scope="col">Dias</th>
+                      <th scope="col">Sala</th>
+                      <th scope="col">Hora iníco</th>
+                      <th scope="col">Hora fim</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- segunda-->
+                    <tr>
+                      <td>
+                        <input [disabled]="true"  [ngModelOptions]="{standalone: true}" type="checkbox" class="flat" name="table_records" [(ngModel)]="monitoria.horario.segunda"> Segunda-feira
+                      </td>
+                      <td>
+                        <span>{{monitoria.horario.sala_segunda}}</span>
+                      </td>
+                      <td>
+                        <span>{{monitoria.horario.inicio_segunda}}</span>                           
+                      </td>
+                      <td>
+                        <span>{{monitoria.horario.final_segunda}}</span>              
+                      </td>  
+                    </tr>
+          
+                    <!-- terca-->
+                    <tr>
+                      <td>
+                        <input  [disabled]="true"  [ngModelOptions]="{standalone: true}" type="checkbox"  class="flat" name="table_records" [(ngModel)]="monitoria.horario.terca"> Terça-feira
+                      </td>
+                      <td>
+                        <span>{{monitoria.horario.sala_terca}}</span>              
+                      </td>
+                      <td>
+                        <span>{{monitoria.horario.inicio_terca}}</span>            
+                      </td>
+                      <td>
+                        <span>{{monitoria.horario.final_terca}}</span>
+                      </td>  
+                    </tr>
+          
+                    <!-- quarta-->
+                    <tr>
+                      <td>
+                        <input [disabled]="true"  [ngModelOptions]="{standalone: true}"  type="checkbox"  class="flat" name="table_records" [(ngModel)]="monitoria.horario.quarta"> Quarta-feira
+                      </td>
+                      <td>
+                      <span>{{monitoria.horario.sala_quarta}}</span>                        
+                      </td>
+                      <td>
+                        <span>{{monitoria.horario.inicio_quarta}}</span>              
+                      </td>
+                      <td>
+                        <span>{{monitoria.horario.final_quarta}}</span>            
+                      </td>  
+                    </tr>
+          
+                    <!-- quinta-->
+                    <tr>
+                      <td>
+                        <input [disabled]="true"  [ngModelOptions]="{standalone: true}" type="checkbox" class="flat" name="table_records" [(ngModel)]="monitoria.horario.quinta"> Quinta-feira
+                      </td>
+                      <td>
+                        <span>{{monitoria.horario.sala_quinta}}</span>
+                      </td>
+                      <td>
+                        <span>{{monitoria.horario.inicio_quinta}}</span>            
+                      </td>
+                      <td>
+                        <span>{{monitoria.horario.final_quinta}}</span>
+                      </td>  
+                    </tr>
+          
+                    <!-- sexta-->
+                    <tr>
+                      <td>
+                        <input [disabled]="true"  [ngModelOptions]="{standalone: true}" type="checkbox"  class="flat" name="table_records" [(ngModel)]="monitoria.horario.sexta"> Sexta-feira
+                      </td>
+                      <td>
+                        <span>{{monitoria.horario.sala_sexta}}</span>              
+                      </td>
+                      <td>
+                        <span>{{monitoria.horario.inicio_sexta}}</span>           
+                      </td>
+                      <td>
+                        <span>{{monitoria.horario.final_sexta}}</span>
+                      </td>  
+                    </tr>
+                    
+                    <!-- sabado-->
+                    <tr>
+                      <td>
+                        <input [disabled]="true"  [ngModelOptions]="{standalone: true}" type="checkbox" class="flat" name="table_records" [(ngModel)]="monitoria.horario.sabado"> Sábado-feira
+                      </td>
+                      <td>
+                        <span>{{monitoria.horario.sala_sabado}}</span>               
+                      </td>
+                      <td>
+                        <span>{{monitoria.horario.inicio_sabado}}</span>             
+                      </td>
+                      <td>
+                        <span>{{monitoria.horario.final_sabado}}</span> 
+                      </td>  
+                    </tr>
+                  </tbody>
+                </table>
+            </div> 
+           </div>       
+        </td> 
+               
       </tr>
     </tbody>
     

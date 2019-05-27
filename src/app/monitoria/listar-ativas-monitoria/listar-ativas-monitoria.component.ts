@@ -26,7 +26,7 @@ export class ListarAtivasMonitoriaComponent implements OnInit {
 
   setRow(id){
    
-      this.isCollapsed[id]=false;
+     // this.isCollapsed[id]=false;
     
   }
 
