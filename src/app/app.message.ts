@@ -37,6 +37,7 @@ export class AppMessage implements MessageResource, ValidationResource {
       'MSG_SUCESSO_EXCLUIR_MONITORIA': 'Monitoria Excluída com Sucesso',
       'MSG_SUCESSO_ALTERAR_MONITORIA': 'Monitoria Alterada com Sucesso',
       'MSG_SUCESSO_REGISTRAR_DIARIO': 'Diário Registrado com Sucesso',
+      'MSG_ERRO_HORARIP_MONITORIA': 'Horário final não pode ser menor que o inicial',
       
 
       'required': 'Campo de preenchimento obrigatório.',

@@ -12,11 +12,12 @@ import { AlterarMonitoriaComponent } from './alterar-monitoria/alterar-monitoria
 import { ExcluirMonitoriaComponent } from './excluir-monitoria/excluir-monitoria.component';
 import { ListarAtivasMonitoriaComponent } from './listar-ativas-monitoria/listar-ativas-monitoria.component';
 import { ListarHistoricoMonitoriaComponent } from './listar-historico-monitoria/listar-historico-monitoria.component';
+import { ListarAtivasDetalheMonitoriaComponent } from './listar-ativas-monitoria/listar-ativas-detalhe-monitoria.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
-  declarations: [IncluirMonitoriaComponent, ListarMonitoriaComponent, AlterarMonitoriaComponent, ExcluirMonitoriaComponent, ListarAtivasMonitoriaComponent, ListarHistoricoMonitoriaComponent],
+  declarations: [IncluirMonitoriaComponent, ListarMonitoriaComponent, AlterarMonitoriaComponent, ExcluirMonitoriaComponent, ListarAtivasMonitoriaComponent, ListarHistoricoMonitoriaComponent,ListarAtivasDetalheMonitoriaComponent],
   imports: [
     NgbModule,
     CommonModule,

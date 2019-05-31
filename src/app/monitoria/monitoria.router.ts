@@ -9,7 +9,7 @@ import { ListarMonitoriaComponent } from './listar-monitoria/listar-monitoria.co
 import { ExcluirMonitoriaComponent } from './excluir-monitoria/excluir-monitoria.component';
 import { ListarAtivasMonitoriaComponent } from './listar-ativas-monitoria/listar-ativas-monitoria.component';
 import { ListarHistoricoMonitoriaComponent } from './listar-historico-monitoria/listar-historico-monitoria.component';
-
+import { ListarAtivasDetalheMonitoriaComponent } from './listar-ativas-monitoria/listar-ativas-detalhe-monitoria.component';
 
 /**
  * Configuração de 'Rotas' do módulo 'Monitoria'.
@@ -40,6 +40,10 @@ export const MonitoriaRoutes: Routes = [
     {
         path: 'excluir/:id',
         component: ExcluirMonitoriaComponent
+    },
+    {
+        path: 'listar-ativas-detalhe/:id',
+        component: ListarAtivasDetalheMonitoriaComponent
     },
     {
         path: '',

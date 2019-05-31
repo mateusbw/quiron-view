@@ -219,9 +219,12 @@
     </div>
 
     <div class="d-flex justify-content-center">
-      <button type="button" routerLink="/monitoria" class="btn btn-primary mr-2">Cancelar</button>
-      <button type="reset" class="btn btn-primary mr-2">Limpar</button>
-      <button type="submit" class="btn btn-success mr-2">Enviar</button>
+      <button type="button" routerLink="/monitoria" class="btn btn-primary mr-2" [disabled]="processando">Cancelar</button>
+      <button type="reset" class="btn btn-primary mr-2" [disabled]="processando">Limpar</button>
+      <button type="submit" class="btn btn-success mr-2" [disabled]="processando">
+        <span *ngIf="processando" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        Enviar
+      </button> 
     </div>
   </form>
 

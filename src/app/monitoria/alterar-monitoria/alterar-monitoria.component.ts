@@ -20,6 +20,7 @@ export class AlterarMonitoriaComponent implements OnInit {
   public opcoesSemestres;
   public opcoesStatus;
   private monitoriaId;
+  public processando;
   constructor(private monitoriaService:  MonitoriaService,
               private disciplinaService: DisciplinaService,
               private alunoService: AlunoService,
@@ -42,6 +43,7 @@ export class AlterarMonitoriaComponent implements OnInit {
       }
     };
     */
+    this.processando =false;
     this.monitoriaService.buscarMonitoria(this.monitoriaId).subscribe(data=>{
       this.monitoria = data;
       this.formataHoraCorreto();
@@ -90,14 +92,22 @@ export class AlterarMonitoriaComponent implements OnInit {
   public enviar(formulario: NgForm) {
     if(formulario.valid){
       //this.formataHoraCorreto();
-      this.monitoriaService.atualizaMonitoria(this.monitoria).subscribe(data=>{
-        this.router.navigate(['/monitoria']);
-        this.messageService.addMsgSuccess('MSG_SUCESSO_ALTERAR_MONITORIA');
-      }, error=>{
-        this.messageService.addMsgDanger(error.error.message);
-        console.error(error);
-      }
-      )
+      if (!this.validaHora()){
+        this.messageService.addMsgDanger('MSG_ERRO_HORARIP_MONITORIA'); 
+      }else{
+
+        this.processando = true;
+        this.monitoriaService.atualizaMonitoria(this.monitoria).subscribe(data=>{
+          this.router.navigate(['/monitoria']);
+          this.messageService.addMsgSuccess('MSG_SUCESSO_ALTERAR_MONITORIA');
+          this.processando = false;
+        }, error=>{
+          this.messageService.addMsgDanger(error.error.message);
+          console.error(error);
+          this.processando = false;
+        }
+        )
+    }
     }
   }
 
@@ -133,6 +143,79 @@ export class AlterarMonitoriaComponent implements OnInit {
       this.monitoria.horario.inicio_sabado = new Date(this.monitoria.horario.inicio_sabado).toLocaleTimeString();
       this.monitoria.horario.final_sabado  = new Date(this.monitoria.horario.final_sabado).toLocaleTimeString();
     }
+  }
+  validaHora(){
+    if (this.monitoria.horario.segunda==true){   
+      const ini = new Date("1989-12-31 "+ this.monitoria.horario.inicio_segunda);
+      const fim = new Date("1989-12-31 "+ this.monitoria.horario.final_segunda);
+      console.log('ini '+ini);
+      console.log('fim '+fim);
+      if (ini > fim){
+        return false; 
+      }else{
+        return true;
+      }
+      
+    }
+
+    
+    if (this.monitoria.horario.terca==true){
+      
+      const ini = new Date("1989-12-31 "+ this.monitoria.horario.inicio_terca);
+      const fim = new Date("1989-12-31 "+ this.monitoria.horario.final_terca);
+      
+      if (ini > fim){
+        return false; 
+      }else{
+        return true;
+      }
+    }
+
+    if (this.monitoria.horario.quarta==true){      
+      const ini = new Date("1989-12-31 "+ this.monitoria.horario.inicio_quarta);
+      const fim = new Date("1989-12-31 "+ this.monitoria.horario.final_quarta);
+      
+      if (ini > fim){
+        return false; 
+      }else{
+        return true;
+      }
+    }
+
+    if (this.monitoria.horario.quinta==true){      
+      const ini = new Date("1989-12-31 "+ this.monitoria.horario.inicio_quinta);
+      const fim = new Date("1989-12-31 "+ this.monitoria.horario.final_quinta);
+      
+      if (ini > fim){
+        return false; 
+      }else{
+        return true;
+      }
+    }
+
+    if (this.monitoria.horario.sexta==true){      
+      const ini = new Date("1989-12-31 "+ this.monitoria.horario.inicio_sexta);
+      const fim = new Date("1989-12-31 "+ this.monitoria.horario.final_sexta);
+      
+      if (ini > fim){
+        return false; 
+      }else{
+        return true;
+      }
+    }
+    
+    if (this.monitoria.horario.sabado==true){      
+      const ini = new Date("1989-12-31 "+ this.monitoria.horario.inicio_sabado);
+      const fim = new Date("1989-12-31 "+ this.monitoria.horario.final_sabado);
+      
+      if (ini > fim){
+        return false; 
+      }else{
+        return true;
+      }
+    }
+  
+    return true;
   }
 
   public limparHorarioDesativado(){
