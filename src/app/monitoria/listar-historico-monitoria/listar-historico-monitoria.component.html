@@ -5,23 +5,25 @@
     </div>
   </div>
   <ul>
-    <li>
+    <li *ngFor="let sem of listaSemestres; let i = index">
       <a  (click)="click(i)"
         [attr.aria-expanded]="!isCollapsed[i]" aria-controls="collapseExample">
-          <label class="form-title" style="margin-top: 10px;"> Semeste Exemplo 
+          <label class="form-title" style="margin-top: 10px;"> {{sem}}
             <i class="fa fa-chevron-down" style="margin-left: 10px;" aria-hidden="true"></i>
           </label> 
       </a>
       <hr>
-      <div id="collapseExample" [ngbCollapse]="isCollapsed[i]">
-        <div class="card">
-          <div class="card-body">
-            You can collapse this card by clicking Toggle
+      <div id="collapseExample" [ngbCollapse]="!isCollapsed[i]">
+        <ul>
+          <div *ngFor="let mon of listaMonitorias">
+              <li *ngIf="mon.semestre == sem">
+                  <label >{{mon.nome}}</label>
+              </li>
           </div>
-        </div>
+            
+        </ul>
       </div>
     </li>
-    
 </ul>
 
 </div>

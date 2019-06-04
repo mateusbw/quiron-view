@@ -73,4 +73,8 @@ public buscarMonitoriaPorMonitor(idMonitor: any): Observable<any> {
   public buscarAlunosByMonitoria(idMonitoria: any): Observable<any>{
     return this.http.get(`${environment.urlMonitoria}alunoByMonitoria/${idMonitoria}`);
   }
+
+  public buscarMonitoriasComDiario(): Observable<any>{
+    return this.http.get(`${environment.urlMonitoria}monitoriasWithDiario`);
+  }
 }
