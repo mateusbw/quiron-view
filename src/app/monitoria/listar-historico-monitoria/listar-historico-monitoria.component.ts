@@ -54,4 +54,7 @@ export class ListarHistoricoMonitoriaComponent implements OnInit {
    return this.isCollapsed[id];
   }
 
+  buscarDetalhes(id){
+    console.log(id);
+  }
 }

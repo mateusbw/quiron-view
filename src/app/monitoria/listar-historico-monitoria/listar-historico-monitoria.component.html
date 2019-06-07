@@ -4,7 +4,7 @@
       <p class="form-title">Lista de Monitorias Realizadas</p>
     </div>
   </div>
-  <ul>
+  <ul style="list-style: none;"> 
     <li *ngFor="let sem of listaSemestres; let i = index">
       <a  (click)="click(i)"
         [attr.aria-expanded]="!isCollapsed[i]" aria-controls="collapseExample">
@@ -14,10 +14,12 @@
       </a>
       <hr>
       <div id="collapseExample" [ngbCollapse]="!isCollapsed[i]">
-        <ul>
+        <ul style="list-style: none;">
           <div *ngFor="let mon of listaMonitorias">
               <li *ngIf="mon.semestre == sem">
-                  <label >{{mon.nome}}</label>
+                  <label (click)="buscarDetalhes(mon.id)"> 
+                    <i class="fa fa-ellipsis-h mr-3"></i>{{mon.nome}}
+                  </label>
               </li>
           </div>
             

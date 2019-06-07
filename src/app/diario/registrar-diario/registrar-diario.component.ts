@@ -81,8 +81,15 @@ export class RegistrarDiarioComponent implements OnInit {
 
       this.diarioService.registrarDiario(this.diario).subscribe(data => {
          this.messageService.addMsgSuccess('MSG_SUCESSO_REGISTRAR_DIARIO');
+         this.diario = {
+           id_monitoria: null, 
+           data_diario: null,
+           conteudo_ministrado: null,
+           listaAlunos: []
+        }
+        this.router.navigate(['/']);
       }, error => {
-        console.log(error);
+        this.messageService.addMsgDanger(error.error.message);
       })
   }
 
