@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MonitoriaService } from 'src/app/service/monitoria.service';
+import { Router } from '@angular/router';
 import { componentNeedsResolution } from '@angular/core/src/metadata/resource_loading';
 
 @Component({
@@ -12,7 +13,8 @@ export class ListarHistoricoMonitoriaComponent implements OnInit {
   public aux = false;
   public listaMonitorias = [];
   public listaSemestres = [];
-  constructor(private monitoriaService: MonitoriaService) { }
+  constructor(private router: Router,
+              private monitoriaService: MonitoriaService, ) { }
 
   ngOnInit() {
     this.monitoriaService.buscarMonitoriasComDiario().subscribe(data=>{
@@ -54,7 +56,7 @@ export class ListarHistoricoMonitoriaComponent implements OnInit {
    return this.isCollapsed[id];
   }
 
-  buscarDetalhes(id){
-    console.log(id);
-  }
+  // buscarDetalhes(id){
+  //   this.router.navigate(['/monitoria/detalhar-monitoria/'+id]);
+  // }
 }

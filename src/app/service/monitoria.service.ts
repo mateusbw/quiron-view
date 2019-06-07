@@ -77,4 +77,8 @@ public buscarMonitoriaPorMonitor(idMonitor: any): Observable<any> {
   public buscarMonitoriasComDiario(): Observable<any>{
     return this.http.get(`${environment.urlMonitoria}monitoriasWithDiario`);
   }
+
+  public buscarDetalhesMonitoria(idMonitoria: any): Observable<any>{
+    return this.http.get(`${environment.urlMonitoria}detalhesMonitoria/${idMonitoria}`);
+  }
 }

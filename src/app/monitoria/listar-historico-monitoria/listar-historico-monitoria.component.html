@@ -17,9 +17,14 @@
         <ul style="list-style: none;">
           <div *ngFor="let mon of listaMonitorias">
               <li *ngIf="mon.semestre == sem">
-                  <label (click)="buscarDetalhes(mon.id)"> 
-                    <i class="fa fa-ellipsis-h mr-3"></i>{{mon.nome}}
-                  </label>
+                <a [routerLink]="['/monitoria', 'detalhar-monitoria', mon.id]">
+                    <label> 
+                        <i class="fa fa-ellipsis-h mr-3"></i>{{mon.nome}}
+                      </label> 
+                </a>
+                    
+                
+                  
               </li>
           </div>
             
