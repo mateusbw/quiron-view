@@ -10,7 +10,7 @@
             <p>{{usuario.role}}</p>
         </div>
         <p class="font-weight-bold menu">MENU</p>
-        <button class=" btn btn-clear btn-block text-left text-light" routerLink="/aluno" >
+        <button *ngIf="verificaAcessos('alunos')" class=" btn btn-clear btn-block text-left text-light" routerLink="/aluno" >
             <i class="fa fa-users mr-3"></i>
             <span class="font-weight-bold">Alunos</span>
         </button>
@@ -40,7 +40,15 @@
             <button type="button" (click)="sair()" class="btn btn-clear" >Sair <i class="fa fa-sign-out"></i></button>
         </nav>
         <div class="container p-4">
-            <h2 class="text-uppercase text-primary">Bem-vindo ao sistema Quiron</h2>
+            <h3 *ngIf="rota == null" class="text-uppercase text-primary">
+                Bem-vindo ao sistema Quiron, 
+                <span  *ngIf = "usuario.role == null">
+                    visitante!
+                </span>
+                <span *ngIf= "usuario.role != null">
+                    {{usuario.nome}}!
+                </span>
+            </h3>
             <router-outlet></router-outlet>
         </div>
     </div>

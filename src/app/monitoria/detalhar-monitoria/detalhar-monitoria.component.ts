@@ -9,7 +9,8 @@ import { MessageService } from 'src/app/core/message/message.service';
   styleUrls: ['./detalhar-monitoria.component.sass']
 })
 export class DetalharMonitoriaComponent implements OnInit {
-  public dadosMonitoria = {};
+  public dadosMonitoria = {
+  };
   public monitoriaId;
   constructor(route: ActivatedRoute,
               private monitoriaService: MonitoriaService,
@@ -20,6 +21,11 @@ export class DetalharMonitoriaComponent implements OnInit {
   ngOnInit() {
     console.log(this.monitoriaId);
     this.monitoriaService.buscarDetalhesMonitoria(this.monitoriaId).subscribe(data=>{
+      
+      for(let d of data.lista_diarios){
+        var date = new Date(d.data_diario);
+        d.data_diario = date.toLocaleDateString();
+      }
       this.dadosMonitoria = data;
     }, error =>{
       this.messageService.addMsgDanger(error.error.message);

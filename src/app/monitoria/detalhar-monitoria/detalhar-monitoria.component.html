@@ -1,22 +1,25 @@
 <div class="card p-3">
   <div class="border-bottom-2">
     <div class="d-flex justify-content-between align-items-center">
-      <p class="form-title">Detalhe da Monitoria - {{monitoria.nome_monitoria}} </p>  
+      <p class="form-title">Detalhe da Monitoria - {{dadosMonitoria.nome}} </p>  
       </div>
   </div>
   
   <div class="mb-3">
     <div class="row">
       <div class="col-sm-6">
-        Disciplina:
+        <label class="mr-3 text-primary font-weight-bold text-right">Disciplina: </label>
+        {{dadosMonitoria.disciplina}}
       </div>
       <div class="col-sm-6">
-        Semestre:
+        <label class="mr-3 text-primary font-weight-bold text-right">Semestre: </label>
+        {{dadosMonitoria.semestre}}
       </div>
     </div>
     <div class="row">
       <div class="col-sm-6">
-        Monitor Atual: 
+        <label class="mr-3 text-primary font-weight-bold text-right"> Monitor Atual: </label>
+        {{dadosMonitoria.nome_monitor}} 
       </div>
     </div>
 
@@ -24,10 +27,14 @@
 
     <div class="row">
         <div class="col-sm-6">
-            Qtde. de encontros: 
+          <label class="mr-3 text-primary font-weight-bold text-right"> Qtde. de encontros: </label>
+          {{dadosMonitoria.qtde_encontros}}
           </div>
           <div class="col-sm-6">
-             Qtde. de alunos frequentando: 
+            <label class="mr-3 text-primary font-weight-bold text-right">
+              Qtde. de alunos frequentando: 
+              </label>
+              {{dadosMonitoria.qtde_frequentando}}
             </div>
     </div>
 
@@ -41,22 +48,27 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr *ngFor="let diario of dadosMonitoria.lista_diarios">
             <td>
-              <!--id-->
+              {{diario.id_diario}}
             </td>
             <td>
-                <!--data-->
+                {{diario.data_diario}}
               </td>
               <td>
-                  <!--conteudo-->
+                  {{diario.atividade_realizada_diario}}
                 </td>
                 <td>
-                    <!--presentes-->
+                   {{diario.qtde_presentes}}
                   </td>
 
           </tr>
         </tbody>
-      </table>
+    </table>
+    <div class="d-flex justify-content-center">
+        <button type="button" routerLink="/monitoria/listar-historico" class="btn btn-primary mr-2">Voltar</button>
+    </div>
+    
+
   </div>
 </div>
