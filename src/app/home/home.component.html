@@ -14,22 +14,20 @@
             <i class="fa fa-users mr-3"></i>
             <span class="font-weight-bold">Alunos</span>
         </button>
-        <button class=" btn btn-clear btn-block text-left text-light" routerLink="/monitoria">
+        <button *ngIf="verificaAcessos('monitoria')" class=" btn btn-clear btn-block text-left text-light" routerLink="/monitoria">
             <i class="fa fa-briefcase  mr-3"></i>
             <span class="font-weight-bold">Monitoria</span>
         </button>
-        <button class=" btn btn-clear btn-block text-left text-light" routerLink="/diario">
+        <button *ngIf="verificaAcessos('preenche_diario')" class=" btn btn-clear btn-block text-left text-light" routerLink="/diario">
             <i class="fa fa-book mr-3"></i>
             <span class="font-weight-bold">Diário</span>
         </button>
-        <button class=" btn btn-clear btn-block text-left text-light" routerLink="/monitoria/listar-ativas">
-            <i class="fa fa-check-square mr-3"></i>
-            
+        <button *ngIf="verificaAcessos('ativas')" class=" btn btn-clear btn-block text-left text-light" routerLink="/monitoria/listar-ativas">
+            <i class="fa fa-check-square mr-3"></i>            
             <span class="font-weight-bold">Monitorias Ativas</span>
         </button>
-        <button class=" btn btn-clear btn-block text-left text-light" routerLink="/monitoria/listar-historico">
-            <i class="fa fa-history mr-3"></i>
-            
+        <button *ngIf="verificaAcessos('monitoria_realizada')" class=" btn btn-clear btn-block text-left text-light" routerLink="/monitoria/listar-historico">
+            <i class="fa fa-history mr-3"></i>            
             <span class="font-weight-bold">Monitorias Realizadas</span>
         </button>
     </div>
