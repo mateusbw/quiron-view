@@ -8,72 +8,45 @@ import { MessageService } from '../core/message/message.service';
 
 @Injectable()
 export class AuthService {
-  
-    public loginSession;
+
+    public user;
     public token;
     /**
      * Construtor da classe.
      *
      * @param http
      */
-    constructor(private http: HttpClient, private route:Router, private messageService: MessageService) { 
+    constructor(private http: HttpClient, private route: Router, private messageService: MessageService) {
     }
 
     public login(user: any) {
-        return  this.http.post(`${environment.urlLogin}realizaLogin`, user).subscribe(data=>{
+        return this.http.post(`${environment.urlLogin}realizaLogin`, user).subscribe(data => {
+            localStorage.setItem('user', JSON.stringify(data));
 
-            localStorage.setItem('user', this.hashToken(data));
-            this.route.navigate(['/']);
-
-        },error =>{
-            console.log("Erro: ",error)
-            if(error.status == 500){
+        }, error => {
+            console.log("Erro: ", error)
+            if (error.status == 500) {
                 this.messageService.addMsgDanger(error.error.message);
-            }else{
+            } else {
                 this.messageService.addMsgDanger("MSG_FALHA_CONEXAO");
             }
         });
-       
     }
 
-    public getSession(): Object{
-        return this.loginSession;
+    public getUser() {
+        if (this.user === undefined && localStorage.getItem('user') != null) {
+            this.user = JSON.parse(localStorage.getItem('user'));
+        }
+        return this.user;
     }
 
-    public setSession(data: any) {
-        this.loginSession = data;
-      }
-
-    public getUser(){
-        this.token = localStorage.getItem('user');
-        let array = this.token.split("##")
-        let user = {
-            id: array[0],
-            nome: array[1],
-            idPapel: array[2],
-            role: array[3],
-        }                           
-        return user;
+    public autenticado(): boolean {
+       return !!this.getUser();
     }
 
-      public autenticado():boolean{
-          if(this.token === undefined && localStorage.getItem('user') != null){
-              this.token = localStorage.getItem('user');                       
-          }
+    public sair() {
+        localStorage.removeItem('user');
+        this.route.navigate(['/acesso']);
+    }
 
-          if(this.token === undefined){
-            this.route.navigate(['/acesso']);
-          }
-
-          return this.token !== undefined;
-      }
-
-      public sair(){
-          localStorage.removeItem('user');
-          this.route.navigate(['/acesso']);
-      }
-
-      private hashToken(user: any):string{
-          return user.id+'##'+user.nome+'##'+user.papel.id+'##'+user.papel.role;
-      }
 }

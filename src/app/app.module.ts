@@ -1,7 +1,6 @@
 
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRouting } from './app.router';
@@ -32,7 +31,6 @@ import { AuthGuard } from './service/auth.guard';
     MessageModule.forRoot(),
     BrowserModule,
     ServiceModule.forRoot(),
-    AngularFontAwesomeModule,
     BrowserAnimationsModule,
   ],
   providers: [

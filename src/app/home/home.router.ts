@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { SecurityGuard } from '../core/security/security.guard'
 import { AuthGuard } from './../service/auth.guard';
+import { HistoricoPresencaComponent } from './historico-presenca/historico-presenca.component';
 
 /**
  * Configuração de 'Rotas' do módulo 'Home'.
@@ -22,6 +23,10 @@ export const HomeRoutes: Routes = [
       },
       {
         path: 'diario', loadChildren: '../app/diario/diario.module#DiarioModule'
+
+      },
+      {
+        path: 'historico-presenca', component: HistoricoPresencaComponent
 
       }
     ],

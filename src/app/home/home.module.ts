@@ -7,10 +7,13 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home.component';
 import { ValidationModule } from '../core/validation/validation.module';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker/';
+import { HistoricoPresencaComponent } from './historico-presenca/historico-presenca.component';
+import { MaskModule } from '../core/mask/mask.module';
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    HistoricoPresencaComponent
   ],
   imports: [
     CommonModule,

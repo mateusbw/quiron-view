@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
     if(form.valid){
       this.authService.login(this.user);
     }
+    this.router.navigate(['/']);
   }
 
 }

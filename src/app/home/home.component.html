@@ -4,46 +4,60 @@
     <!--SIDE BAR-->
     <div class="col-2 bg-primary text-light side-bar p-3 position-fixed">
         <img class="img-fluid mb-3" src="/assets/img/logo-horizontal-branca.png">
-        <h6 class="text-center">Você está logado como:</h6>
         <div class="text-center">
-            <p class="mb-0 font-weight-bold">{{usuario.nome}}</p>
-            <p>{{usuario.role}}</p>
+            <p class="font-weight-bold">{{usuario.nome}}</p>
+            <h6 class="mb-0">Você está logado como:</h6>
+            <p>{{usuario.papel.role}}</p>
         </div>
         <p class="font-weight-bold menu">MENU</p>
-        <button *ngIf="verificaAcessos('alunos')" class=" btn btn-clear btn-block text-left text-light" routerLink="/aluno" >
+        <button *ngIf="verificaAcessos('alunos')" class=" btn btn-clear btn-block text-left text-light"
+            routerLink="/aluno">
             <i class="fa fa-users mr-3"></i>
             <span class="font-weight-bold">Alunos</span>
         </button>
-        <button *ngIf="verificaAcessos('monitoria')" class=" btn btn-clear btn-block text-left text-light" routerLink="/monitoria">
+        <button *ngIf="verificaAcessos('monitoria')" class=" btn btn-clear btn-block text-left text-light"
+            routerLink="/monitoria">
             <i class="fa fa-briefcase  mr-3"></i>
             <span class="font-weight-bold">Monitoria</span>
         </button>
-        <button *ngIf="verificaAcessos('preenche_diario')" class=" btn btn-clear btn-block text-left text-light" routerLink="/diario">
+        <button *ngIf="verificaAcessos('preenche_diario')" class=" btn btn-clear btn-block text-left text-light"
+            routerLink="/diario">
             <i class="fa fa-book mr-3"></i>
             <span class="font-weight-bold">Diário</span>
         </button>
-        <button *ngIf="verificaAcessos('ativas')" class=" btn btn-clear btn-block text-left text-light" routerLink="/monitoria/listar-ativas">
-            <i class="fa fa-check-square mr-3"></i>            
+        <button *ngIf="verificaAcessos('ativas')" class=" btn btn-clear btn-block text-left text-light"
+            routerLink="/monitoria/listar-ativas">
+            <i class="fa fa-check-square mr-3"></i>
             <span class="font-weight-bold">Monitorias Ativas</span>
+            <button class=" btn btn-clear btn-block text-left text-light" routerLink="/relatorios">
+                <i class="fa fa-chart-line mr-3"></i>
+                <span class="font-weight-bold">Relatórios</span>
+            </button>
         </button>
-        <button *ngIf="verificaAcessos('monitoria_realizada')" class=" btn btn-clear btn-block text-left text-light" routerLink="/monitoria/listar-historico">
-            <i class="fa fa-history mr-3"></i>            
+        <button *ngIf="verificaAcessos('monitoria_realizada')" class=" btn btn-clear btn-block text-left text-light"
+            routerLink="/monitoria/listar-historico">
+            <i class="fa fa-history mr-3"></i>
             <span class="font-weight-bold">Monitorias Realizadas</span>
+        </button>
+        <button  class=" btn btn-clear btn-block text-left text-light"
+            routerLink="/historico-presenca">
+            <i class="fa fa-calendar-check mr-3"></i>
+            <span class="font-weight-bold">Histórico de Presenças</span>
         </button>
     </div>
 
     <!--CONTEÚDO-->
     <div class="col-10 px-0">
         <nav class="navbar navbar-light d-flex flex-row-reverse py-3">
-            <button type="button" (click)="sair()" class="btn btn-clear" >Sair <i class="fa fa-sign-out"></i></button>
+            <button type="button" (click)="sair()" class="btn btn-clear">Sair <i class="fa fa-sign-out"></i></button>
         </nav>
         <div class="container p-4">
             <h3 *ngIf="rota == null" class="text-uppercase text-primary">
-                Bem-vindo ao sistema Quiron, 
-                <span  *ngIf = "usuario.role == null">
+                Bem-vindo ao sistema Quiron,
+                <span *ngIf="usuario.role == null">
                     visitante!
                 </span>
-                <span *ngIf= "usuario.role != null">
+                <span *ngIf="usuario.role != null">
                     {{usuario.nome}}!
                 </span>
             </h3>

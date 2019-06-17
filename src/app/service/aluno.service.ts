@@ -70,5 +70,9 @@ public listarAlunoPorNome(nome: string): Observable<any> {
   public listarAlunoPorMonitor(idMonitor: any): Observable<any> {
     return this.http.get(`${environment.urlAluno}monitor/${idMonitor}`);
   }
+
+  public listarHistoricoPrecenca(filtro: any): Observable<any> {
+    return this.http.get(`${environment.urlAluno}monitorias?nome=${filtro.nome}&cpf=${filtro.cpf}`);
+  }
   
 }

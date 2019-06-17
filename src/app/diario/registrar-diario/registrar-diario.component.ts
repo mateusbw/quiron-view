@@ -51,6 +51,7 @@ export class RegistrarDiarioComponent implements OnInit {
      //Busca os dados de monitoria a partir do id do monitor
      this.monitoriaService.buscarMonitoriaPorMonitor(this.monitor.id).subscribe(data => {
        this.dadosMonitoria = data;
+       console.log("Monitoria: ",data);
        this.monitoriaService.buscarAlunosByMonitoria(this.dadosMonitoria.id).subscribe(data => {
             this.listaAlunos = data;
             //Fazer um for e adicionar o atributo selected para todos os alunos.
