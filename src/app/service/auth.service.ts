@@ -31,6 +31,7 @@ export class AuthService {
     public login(user: any) {
         return this.http.post(`${environment.urlLogin}realizaLogin`, user).subscribe(data => {
             localStorage.setItem('user', JSON.stringify(data));
+            window.location.href = "http://localhost:4200/"
 
         }, error => {
             console.log("Erro: ", error)

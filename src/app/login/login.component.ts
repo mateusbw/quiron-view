@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   public user:any;
   constructor(private authService: AuthService,
               private router: Router,
-              private messageService: MessageService) { }
+              private messageService: MessageService,
+              private location: Location) { }
 
   ngOnInit() {
     this.user={};
@@ -24,12 +26,11 @@ export class LoginComponent implements OnInit {
     if(form.valid){
       this.authService.login(this.user);
     }
-    this.router.navigate(['/']);
   }
 
   public logarAluno(){
       this.authService.loginAluno();
-    this.router.navigate(['/']);
+      window.location.href = "http://localhost:4200/";
   }
 
 }
