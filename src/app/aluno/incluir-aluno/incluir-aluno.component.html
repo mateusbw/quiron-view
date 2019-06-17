@@ -19,7 +19,7 @@
       <label for="input-cpf" class="mr-3 text-primary font-weight-bold col-md-4 text-right required">CPF</label>
       <div class="col-md-4 px-0">
         <input type="text" class="form-control" placeholder="Digite o CPF" id="input-cpf" name="cpf"
-          [(ngModel)]="aluno.cpf" required #cpf="ngModel">
+          [(ngModel)]="aluno.cpf" required #cpf="ngModel" maxlength="12">
         <validation-message [for]="cpf" [form]="formAluno"></validation-message>
       </div>
     </div>

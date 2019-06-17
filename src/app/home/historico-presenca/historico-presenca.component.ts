@@ -28,6 +28,7 @@ export class HistoricoPresencaComponent implements OnInit {
   public buscarAlunos() {
     console.log("buscarAlunos()")
     this.alunoService.listarAlunoPorNome(this.filtro.nome).subscribe(data => {
+      data.length == 0 ? this.messagem.addMsgDanger("Nenhum registro encontrado") : console.log(data);
       this.alunos = data;
     })
   }

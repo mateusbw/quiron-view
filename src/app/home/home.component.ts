@@ -1,5 +1,5 @@
 import { Router, NavigationEnd } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 
 import { AuthService } from 'src/app/service/auth.service'
 
@@ -22,7 +22,8 @@ export class HomeComponent implements OnInit {
   public acessoRotas;
 
   constructor(private authService: AuthService,
-    private router: Router) { }
+    private router: Router) { 
+    }
 
   ngOnInit() {
     this.usuario = this.authService.getUser();

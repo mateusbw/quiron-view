@@ -48,10 +48,10 @@ export class AlterarAlunoComponent implements OnInit {
         this.aluno.idAlunoCadastrou = this.authService.getUser().id;
         this.alunoService.incluirAluno(this.aluno).subscribe(data => {
           this.router.navigate(['/aluno']);
-          this.messageService.addMsgSuccess('MSG_REGISTRO_ALTERADO_SUCESSO');
-        }, error => {
-          this.messageService.addMsgDanger("MSG_ERRO_ALTERAR");
-          console.error(error);
+          this.messageService.addMsgSuccess('Registro incluído com sucesso.');
+        }, erro => {
+          this.messageService.addMsgDanger("Erro ao incluir registro: "+erro.error.message);
+          console.error(erro);
         }
         )
       }else{
