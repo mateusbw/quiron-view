@@ -27,4 +27,9 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  public logarAluno(){
+      this.authService.loginAluno();
+    this.router.navigate(['/']);
+  }
+
 }

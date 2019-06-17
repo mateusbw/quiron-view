@@ -1,7 +1,7 @@
 import { Router, NavigationEnd } from '@angular/router';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 
-import { AuthService } from 'src/app/service/auth.service'
+import { AuthService, Papeis } from 'src/app/service/auth.service'
 
 /**
  * Implementação do component 'Home' responsável por prover o template padrão da aplicação.
@@ -20,39 +20,48 @@ export class HomeComponent implements OnInit {
   public rota;
   public acessos;
   public acessoRotas;
+  public itensMenu: any[];
 
   constructor(private authService: AuthService,
-    private router: Router) { 
-    }
+    private router: Router) {
+  }
 
   ngOnInit() {
     this.usuario = this.authService.getUser();
-    console.log(this.usuario)
-    if (this.usuario.papel.id === 1) {
-      this.acessos = ["ativas"];
-    } else
-      if (this.usuario.papel.id === 2) {
-        this.acessos = ["preenche_diario", "alunos"];
-      } else
-        if (this.usuario.papel.id === 3) {
-          this.acessos = ["monitoria_realizada", "ativas"];
-        } else
-          if (this.usuario.papel.id === 4) {
-            this.acessos = ["monitoria_realizada", "ativas", "historico"];
-          } else
-            if (this.usuario.papel.id === 5) {
-              this.acessos = ["monitoria", "historico"];
-            }
+    this.itensMenu = this.getItensMenu(this.usuario.papel.id);
   }
 
-  verificaAcessos(acesso) {
-    for (let a of this.acessos) {
-      if (a == acesso) {
-        return true;
-      }
+
+  private getItensMenu(idPapel) {
+    if (idPapel === Papeis.ALUNO) {
+      return [
+        { rota: '/monitoria/listar-ativas', icon: 'fa-check-square', nome: 'Monitorias Ativas' }
+      ]
     }
-    return false;
+
+    if (idPapel === Papeis.MONITOR) {
+      return [
+        { rota: '/aluno', icon: 'fa-users', nome: 'Alunos' },
+        { rota: '/diario', icon: 'fa-book', nome: 'Diário' },
+        { rota: '/monitoria/listar-ativas', icon: 'fa-check-square', nome: 'Monitorias Ativas' },
+      ]
+    }
+
+    if (idPapel === Papeis.PROFESSOR || idPapel === Papeis.COORDENADOR) {
+      return [
+        { rota: '/monitoria/listar-historico', icon: 'fa-history', nome: 'Monitorias Realizadas' },
+        { rota: '/historico-presenca', icon: 'fa-calendar-check', nome: 'Histórico de Presenças' }
+      ]
+    }
+
+    if (idPapel === Papeis.COORDENACAO) {
+      return [
+        { rota: '/monitoria', icon: 'fa-briefcase', nome: 'Monitoria' },
+        { rota: '/historico-presenca', icon: 'fa-calendar-check', nome: 'Histórico de Presenças' }
+      ]
+    }
   }
+
 
   public sair() {
     this.authService.sair();

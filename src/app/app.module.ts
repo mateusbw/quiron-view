@@ -14,7 +14,12 @@ import { MessageModule } from './core/message/message.module';
 import { ValidationModule } from './core/validation/validation.module';
 import { MessageResourceProvider } from './core/message/message.resource';
 import { ValidationResourceProvider } from './core/validation/validation.resource';
-import { AuthGuard } from './service/auth.guard';
+import { AlunoGuard } from './service/guards/aluno.guard';
+import { MonitorGuard } from './service/guards/monitor.guard';
+import { ProfessorGuard } from './service/guards/professor.guard';
+import { CoordenacaoGuard } from './service/guards/coordenacao.guard';
+import { AlunoMonitorGuard } from './service/guards/aluno-monitor.guard';
+import { ProfessorCoordenacaoGuard } from './service/guards/professor-coordenacao.guard';
 
 
 
@@ -32,9 +37,10 @@ import { AuthGuard } from './service/auth.guard';
     BrowserModule,
     ServiceModule.forRoot(),
     BrowserAnimationsModule,
+    LoaderModule
   ],
   providers: [
-    AuthGuard,
+    AlunoGuard,MonitorGuard,ProfessorGuard,CoordenacaoGuard, AlunoMonitorGuard,ProfessorCoordenacaoGuard,
     {
       provide: LOCALE_ID,
       useValue: 'pt',

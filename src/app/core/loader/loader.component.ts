@@ -13,7 +13,7 @@ import { LoaderService } from './loader.service';
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-body">
-                    <img src="assets/img/ajax-loader.gif">
+                    <img src="assets/img/loader.gif">
                   </div>
                 </div>
               </div>

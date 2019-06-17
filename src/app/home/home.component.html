@@ -10,39 +10,10 @@
             <p>{{usuario.papel.role}}</p>
         </div>
         <p class="font-weight-bold menu">MENU</p>
-        <button *ngIf="verificaAcessos('alunos')" class=" btn btn-clear btn-block text-left text-light"
-            routerLink="/aluno">
-            <i class="fa fa-users mr-3"></i>
-            <span class="font-weight-bold">Alunos</span>
-        </button>
-        <button *ngIf="verificaAcessos('monitoria')" class=" btn btn-clear btn-block text-left text-light"
-            routerLink="/monitoria">
-            <i class="fa fa-briefcase  mr-3"></i>
-            <span class="font-weight-bold">Monitoria</span>
-        </button>
-        <button *ngIf="verificaAcessos('preenche_diario')" class=" btn btn-clear btn-block text-left text-light"
-            routerLink="/diario">
-            <i class="fa fa-book mr-3"></i>
-            <span class="font-weight-bold">Diário</span>
-        </button>
-        <button *ngIf="verificaAcessos('ativas')" class=" btn btn-clear btn-block text-left text-light"
-            routerLink="/monitoria/listar-ativas">
-            <i class="fa fa-check-square mr-3"></i>
-            <span class="font-weight-bold">Monitorias Ativas</span>
-            <button class=" btn btn-clear btn-block text-left text-light" routerLink="/relatorios">
-                <i class="fa fa-chart-line mr-3"></i>
-                <span class="font-weight-bold">Relatórios</span>
-            </button>
-        </button>
-        <button *ngIf="verificaAcessos('monitoria_realizada')" class=" btn btn-clear btn-block text-left text-light"
-            routerLink="/monitoria/listar-historico">
-            <i class="fa fa-history mr-3"></i>
-            <span class="font-weight-bold">Monitorias Realizadas</span>
-        </button>
-        <button  class=" btn btn-clear btn-block text-left text-light"
-            routerLink="/historico-presenca">
-            <i class="fa fa-calendar-check mr-3"></i>
-            <span class="font-weight-bold">Histórico de Presenças</span>
+
+        <button *ngFor="let item of itensMenu" class=" btn btn-clear btn-block text-left text-light"  [routerLink]="item.rota">
+            <i [class]="'fa mr-3 ' + item.icon"></i>
+            <span class="font-weight-bold">{{item.nome}}</span>
         </button>
     </div>
 
