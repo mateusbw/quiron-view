@@ -8,7 +8,7 @@ export class MonitorGuard implements CanActivate{
     constructor(private authService: AuthService, private router: Router){};
 
     canActivate(): boolean {
-        let acesso = this.authService.isMonitor();
+        let acesso = (this.authService.isMonitor()) ;
 
         if(!acesso){
             this.router.navigate(['/acesso'])

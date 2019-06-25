@@ -61,9 +61,9 @@
 
 
 
-          <tr *ngFor="let aluno of listaAlunos">
-            <td><input type="checkbox" [(ngModel)]="aluno.presente" [ngModelOptions]="{standalone: true}"><br></td>
-            <td>{{aluno?.nome}}</td>
+          <tr *ngFor="let aln of listaAlunos">
+            <td><input type="checkbox" [(ngModel)]="aln.presente" [ngModelOptions]="{standalone: true}"><br></td>
+            <td>{{aln.nome}}</td>
           </tr>
         </tbody>
       </table>

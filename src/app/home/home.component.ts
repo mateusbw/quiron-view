@@ -47,15 +47,25 @@ export class HomeComponent implements OnInit {
       ]
     }
 
-    if (idPapel === Papeis.PROFESSOR || idPapel === Papeis.COORDENADOR) {
+    if (idPapel === Papeis.PROFESSOR) {
       return [
         { rota: '/monitoria/listar-historico', icon: 'fa-history', nome: 'Monitorias Realizadas' },
-        { rota: '/historico-presenca', icon: 'fa-calendar-check', nome: 'Histórico de Presenças' }
+        //{ rota: '/historico-presenca', icon: 'fa-calendar-check', nome: 'Histórico de Presenças' },
+        { rota: '/monitoria/listar-ativas', icon: 'fa-check-square', nome: 'Monitorias Ativas' }
+      ]
+    }
+
+    if (idPapel === Papeis.COORDENADOR) {
+      return [
+        { rota: '/monitoria/listar-historico', icon: 'fa-history', nome: 'Monitorias Realizadas' },
+        { rota: '/historico-presenca', icon: 'fa-calendar-check', nome: 'Histórico de Presenças' },
+        { rota: '/monitoria/listar-ativas', icon: 'fa-check-square', nome: 'Monitorias Ativas' }
       ]
     }
 
     if (idPapel === Papeis.COORDENACAO) {
       return [
+       // { rota: '/aluno', icon: 'fa-users', nome: 'Alunos' },
         { rota: '/monitoria', icon: 'fa-briefcase', nome: 'Monitoria' },
         { rota: '/historico-presenca', icon: 'fa-calendar-check', nome: 'Histórico de Presenças' }
       ]

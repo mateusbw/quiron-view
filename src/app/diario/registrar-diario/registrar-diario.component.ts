@@ -35,7 +35,7 @@ export class RegistrarDiarioComponent implements OnInit {
 
   ngOnInit() {
     this.pesquisaAlunos;
-     this.listaAlunos = []
+     this.listaAlunos =[];
      this.dadosMonitoria = {}
      this.diario = {
        id_monitoria: null, 
@@ -53,7 +53,9 @@ export class RegistrarDiarioComponent implements OnInit {
        this.dadosMonitoria = data;
        console.log("Monitoria: ",data);
        this.monitoriaService.buscarAlunosByMonitoria(this.dadosMonitoria.id).subscribe(data => {
+            
             this.listaAlunos = data;
+            console.log('lista alunos '+this.listaAlunos);
             //Fazer um for e adicionar o atributo selected para todos os alunos.
             }, error => {
                 console.log(error);
@@ -73,6 +75,7 @@ export class RegistrarDiarioComponent implements OnInit {
       this.alunosPresentes = [];
       this.diario.id_monitoria = this.dadosMonitoria.id;
       //this.formataHora();
+            
       for(let aluno of this.listaAlunos){
         if(aluno.presente == true){
           this.alunosPresentes.push(aluno.id);
@@ -103,13 +106,20 @@ export class RegistrarDiarioComponent implements OnInit {
 
   public inserirAluno(aluno){
     var aux = 0;
-    for(let a of this.listaAlunos){
-      if (a.id == aluno.id){
-        aux = 1;
+    console.log(aluno);
+    if(this.listaAlunos.length >0){
+      for(let a of this.listaAlunos){
+        if (a!=null && a.id == aluno.id){
+          console.log(a);
+          aux = 1;
+        }
       }
     }
+    
     if(aux != 1){
+      aluno.presente = false;
       this.listaAlunos.push(aluno);
+      console.log(this.listaAlunos)
     }
     this.pesquisaAlunos = "";
     this.alunosPesquisa = false;
