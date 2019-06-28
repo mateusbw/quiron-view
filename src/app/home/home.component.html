@@ -3,7 +3,7 @@
     <div class="col-2"></div>
     <!--SIDE BAR-->
     <div class="col-2 bg-primary text-light side-bar p-3 position-fixed">
-        <img class="img-fluid mb-3" src="/assets/img/logo-horizontal-branca.png">
+        <img class="img-fluid mb-3" src="/assets/img/logo-horizontal-branca.png" routerLink="/">
         <div class="text-center">
             <p class="font-weight-bold">{{usuario.nome}}</p>
             <h6 class="mb-0">Você está logado como:</h6>
@@ -25,10 +25,10 @@
         <div class="container p-4">
             <h3 *ngIf="rota == null" class="text-uppercase text-primary">
                 Bem-vindo ao sistema Quiron,
-                <span *ngIf="usuario.role == null">
+                <span *ngIf="usuario.role === null">
                     visitante!
                 </span>
-                <span *ngIf="usuario.role != null">
+                <span *ngIf="usuario.role !== null">
                     {{usuario.nome}}!
                 </span>
             </h3>

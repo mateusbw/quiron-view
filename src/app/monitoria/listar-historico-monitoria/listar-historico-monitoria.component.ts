@@ -26,10 +26,14 @@ export class ListarHistoricoMonitoriaComponent implements OnInit {
           this.listaSemestres.push(mon.semestre);
         }
         else{
+          var aux = 0;
           for(let sem of this.listaSemestres){
             if(sem == mon.semestre){
+              aux = 1;
               break;
             }
+          }
+          if(aux == 0){
             this.listaSemestres.push(mon.semestre);
           }
         }
